@@ -1,0 +1,79 @@
+<div class="jtxxbar">
+    <div class="left">
+            家庭信息及紧急联系人:
+            <button id="btn4" data-bind="click:addPersonView">添加成员</button>
+            </br>
+            <span>(父母、配偶、兄弟姐妹及子女)</span>
+    </div>
+</div>
+<ons-page class="mypage">
+    <table class="jtxx">
+        <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <tbody id="jtxxtbody">
+                            <tr id="jtbtr0" class="topb">
+                                <td><input type="text" data-bind="value:record().C3_464276899657" placeholder="姓名"></td>
+                                <td><input type="text" data-bind="value:record().C3_464276983864" placeholder="与本人关系"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" data-bind="value:record().C3_464277008583" placeholder="联系方式"></td>
+                                <td><input type="text" data-bind="value:record().C3_464184617666" placeholder="工作单位"></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="topb">
+                                <td><input type="text" data-bind="value:record().C3_464175727918" placeholder="紧急联系人姓名"></td>
+                                <td><input type="text" data-bind="value:record().C3_464175750587" placeholder="与本人关系"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" data-bind="value:record().C3_464175797109" placeholder="手机"></td>
+                                <td><input type="text" data-bind="value:record().C3_464175768379" placeholder="现住地址"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" data-bind="value:record().C3_464175781611" placeholder="固定电话"></td>
+                                <td><input type="text" data-bind="value:record().C3_464175812688" placeholder="邮箱"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" id="cbox">
+                                    <label>
+                                        <input id="sureBox" type="checkbox" data-bind="checked:record().C3_466853434510" class="cbox">是否有亲属朋友在本公司任职
+                                    </label>
+                                </td>
+                            </tr>
+                         <!--   <tr id="qy">
+                                <td colspan="2">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <input type="text" data-bind="value:record().C3_" placeholder="姓名">
+                                            </td>
+                                            <td>
+                                                <input type="text" data-bind="value:record().C3_" placeholder="与本人关系">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="text" data-bind="value:record().C3_" placeholder="联系方式">
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>-->
+                        </tfoot>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="topb">
+                <td>
+                    <input type="submit" value="提交" class="submit" data-bind="click:submitClickWork4">
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</ons-page>

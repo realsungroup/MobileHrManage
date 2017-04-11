@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>jQuery IOS风格提示通知层</title>
+
+
+<link type="text/css" rel="stylesheet" href="css/custom.css">
+
+<!--主要样式-->
+<link type="text/css" rel="stylesheet" href="css/iosOverlay.css">
+
+
+</head>
+<body>
+
+<div class="container">
+
+	<p>演示一：</p>
+	<p>
+		<button id="loading" class="btn">加载中</button>
+		<button id="checkMark" class="btn">加载成功</button>
+		<button id="cross" class="btn">加载失败</button>
+	</p>
+	
+	<br /><br />
+	
+	<p>演示二：</p>
+	<p>
+		<button id="loadToSuccess" class="btn">预加载成功</button>
+	</p>
+  
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/iosOverlay.js"></script>
+<script type="text/javascript" src="js/spin.min.js"></script>
+<script type="text/javascript">
+$(document).on("click", "#checkMark", function(e) {
+	iosOverlay({
+		text: "Success!",
+		duration: 2e3,
+		icon: "img/check.png"
+	});
+	return false;
+});
+
+$(document).on("click", "#cross", function(e) {
+	iosOverlay({
+		text: "Error!",
+		duration: 2e3,
+		icon: "img/cross.png"
+	});
+	return false;
+});
+
+$(document).on("click", "#loading", function(e) {
+	var opts = {
+		lines: 13, // The number of lines to draw
+		length: 11, // The length of each line
+		width: 5, // The line thickness
+		radius: 17, // The radius of the inner circle
+		corners: 1, // Corner roundness (0..1)
+		rotate: 0, // The rotation offset
+		color: '#FFF', // #rgb or #rrggbb
+		speed: 1, // Rounds per second
+		trail: 60, // Afterglow percentage
+		shadow: false, // Whether to render a shadow
+		hwaccel: false, // Whether to use hardware acceleration
+		className: 'spinner', // The CSS class to assign to the spinner
+		zIndex: 2e9, // The z-index (defaults to 2000000000)
+		top: 'auto', // Top position relative to parent in px
+		left: 'auto' // Left position relative to parent in px
+	};
+	var target = document.createElement("div");
+	document.body.appendChild(target);
+	var spinner = new Spinner(opts).spin(target);
+	iosOverlay({
+		text: "Loading",
+		duration: 2e3,
+		spinner: spinner
+	});
+	return false;
+});
+
+$(document).on("click", "#loadToSuccess", function(e) {
+	var opts = {
+		lines: 13, // The number of lines to draw
+		length: 11, // The length of each line
+		width: 5, // The line thickness
+		radius: 17, // The radius of the inner circle
+		corners: 1, // Corner roundness (0..1)
+		rotate: 0, // The rotation offset
+		color: '#FFF', // #rgb or #rrggbb
+		speed: 1, // Rounds per second
+		trail: 60, // Afterglow percentage
+		shadow: false, // Whether to render a shadow
+		hwaccel: false, // Whether to use hardware acceleration
+		className: 'spinner', // The CSS class to assign to the spinner
+		zIndex: 2e9, // The z-index (defaults to 2000000000)
+		top: 'auto', // Top position relative to parent in px
+		left: 'auto' // Left position relative to parent in px
+	};
+	var target = document.createElement("div");
+	document.body.appendChild(target);
+	var spinner = new Spinner(opts).spin(target);
+	var overlay = iosOverlay({
+		text: "Loading...",
+		spinner: spinner
+	});
+
+	var w=window.screen.width;
+	var h=window.screen.height;
+	$('.ui-ios-overlay').css("width",w);
+	$('.ui-ios-overlay').css("height",h);
+	window.setTimeout(function() {
+		overlay.update({
+			icon: "img/check.png",
+			text: "Success"
+		});
+	}, 30000);
+
+	window.setTimeout(function() {
+		overlay.hide();
+	}, 33000);
+
+	return false;
+});
+</script>
+
+
+</body>
+</html>

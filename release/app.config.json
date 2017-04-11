@@ -1,0 +1,169 @@
+{
+    "app": {
+        "leaveitems":[{}],
+        "leavedefineresid":533402289043,
+        "ko":null,
+        "formaddfn":null,
+        "showaddbutton":false,
+        "myworkshell":null,
+        "myauditshell":null,
+        "loginUrl":"http://kingofdinner.realsun.me:8081/rispweb/rispservice/apiSvrLogin.aspx?",
+        "baseUrl": "http://kingofdinner.realsun.me:8081/rispweb/risphost/data/AjaxService.aspx?uiver=200&dynlogin=1",
+        "localbaseUrl": "",
+        "hostuser":"demo1",
+        "hostucode":"GHgfPHoXCQm3k3m3DY4DqQ==",
+        "hostwebpos":1300,
+        "getMethod": "ShowHostTableDatas_Ajax",
+        "uploadFileUrl":"http://finisartest.realsun.me:8081/rispweb/rispservice/SvcUploadFile2.aspx",
+        "httppath":"http://finisartest.realsun.me:8081/rispweb/upfiles",
+        "saveMethod":"SaveData_Ajax",
+        "GetCmsColumnsMethod":"GetCmsColumns_Ajax",
+        "getBysqlMethod":"Ajax_QueryBySql",
+        "debug":true,
+        "weixindebug":false,
+        "dbs":null,
+        "user":"",
+        "upass":"",
+        "winno":0,
+        "winname":"",
+        "canteenno":0,
+        "canteenname":"",
+        "runmode":"weixin",
+        "weixinOAuthUrl":"http://finisartest.realsun.me/RSAuth/OAuth?returnUrl=http://localhost:3000",
+        "getWxconfigUrl":"http://finisartest.realsun.me/RSAuth/GetSignature",
+        "downLoadWxImageUrl": "http://finisartest.realsun.me/FileUpload/DownLoadWxMedia?mediaId=",
+        "approoturl":"http://localhost:3000",
+        "SendValidMsgUrl":"http://finisartest.realsun.me/rsauth/SendValidMsg",
+        "AuthClientUrl":"http://finisartest.realsun.me/rsauth/AuthClient",
+        "debugopenid":"oZ8EXwjRjlwsZdv_HdyU5i_rkmGE",
+        "debugunionid":"oqWaVwGcgX9cQhwYQs8e1fg7e9U8",
+        "openid":"",
+        "unionid":"",
+        "weixinloginurl":"weixin",
+        "defaultpagesize":5,
+        "defaultuserlanguage":"cn",
+        "userConfig":null,
+        "userProfile":null,
+        "curRouterHash":"mywork",
+        "subtitle":"",
+        "pagemode":"lazyrepeat",
+        "showback":false,
+        "mywork1html":"",
+        "infinitefunction":null, 
+        "pageType":null,
+   
+     
+    "mainRouter":[
+                { "route": "", "title":"首页", "moduleId": "main/viewmodels/welcome", "nav": false,"iconCls":"icon icon-home" ,"type":"root"},
+                {"route": "weixinauthaccount", "title":"验证", "moduleId": "main/viewmodels/weixinauthaccount", "nav": false,"iconCls":"icon icon-home" ,"type":"root"},
+                { "route": "mywork*detail","title":"填写信息", "moduleId": "mywork/myworkshell", "nav": true ,"iconCls":"icon icon-edit","type":"root"},
+                { "route": "myread*detail","title":"阅读文件", "moduleId": "myread/myreadshell", "nav": true ,"iconCls":"icon icon-check","type":"root"},
+                { "route": "myes*detail","title":"电子签名", "moduleId": "myes/myesshell", "nav": true ,"iconCls":"icon icon-me","type":"root"},
+                { "route": "mysbus*detail","title":"班车", "moduleId": "mysbus/mysbusshell", "nav": true ,"iconCls":"icon icon-me","type":"root"},
+                { "route": "setting","title":"设置", "moduleId": "main/viewmodels/setting", "nav": false ,"iconCls":"icon icon-settings","type":"root"}],
+    "myworkRouter": [
+            {
+                "route": ["","mywork1/:action/resid/:resid/recid/:recid"],
+                "title":"基础信息",
+                "resid":"543089753581",
+                "hash":"#mywork/mywork1/list/resid/0/recid/0",
+                "moduleId":"viewmodels/mywork1",
+                "nav": true ,
+                "iconCls":"icon icon-settings",
+                "type":"myworkpage"
+                
+            },
+            {
+                "route": "mywork2",
+                "title":"教育信息",
+                "resid":"529072606462",
+                "moduleId": "viewmodels/mywork2",
+                "nav": true ,
+                "iconCls":"icon icon-settings",
+                "type":"myworkpage"
+            },
+            {
+                "route": "mywork3",
+                "title":"工作经历",
+                "resid":"529072606462",
+                "moduleId": "viewmodels/mywork3",
+                "nav": true ,
+                "iconCls":"icon icon-settings",
+                "type":"myworkpage"
+            },
+            {
+                "route": "mywork4",
+                "title":"家庭信息",
+                "resid":"529072606462000",
+                "moduleId": "viewmodels/mywork4",
+                "nav": true ,
+                "iconCls":"icon icon-settings",
+                "type":"myworkpage"
+            },
+            {
+                "route": "mywork5",
+                "title":"其他",
+                "resid":"529072606462000",
+                "moduleId": "viewmodels/mywork5",
+                "nav": true ,
+                "iconCls":"icon icon-settings",
+                "type":"myworkpage"
+            }
+        ],           
+    "myreadRouter": [
+            { 
+                "route": ["","myread1"],
+                "title":"同意守则",
+                "resid":"544733093164",
+                "moduleId":"viewmodels/myread1",
+                "nav": true ,
+                "iconCls":"icon icon-settings",
+                "type":"myworkpage"
+            },
+            {
+                "route": "myread2",
+                "title":"纪律(员工)手册",
+                "resid":"544733059461",
+                "moduleId": "viewmodels/myread2",
+                "nav": true ,
+                "iconCls":"icon icon-settings",
+                "type":"myworkpage"
+            },
+            {
+                "route": "myread3",
+                "title":"入职指导",
+                "resid":"544733015541",
+                "moduleId": "viewmodels/myread3",
+                "nav": true ,
+                "iconCls":"icon icon-settings",
+                "type":"myworkpage"
+            }
+        ],
+    "myesRouter":[
+            { 
+                "route": ["","myes"],
+                "title":"电子签名",
+                "resid":"533143158334",
+                "moduleId":"viewmodels/myes",
+                "nav": true ,
+                "iconCls":"icon icon-settings",
+                "type":"myworkpage"
+            }
+        ],
+    "mysbusRouter":[
+            { 
+                "route": ["","mysbus"],
+                "title":"班车",
+                "sbusid":"540469384880",
+                "subid":"540469400782",
+                "moduleId":"viewmodels/mysbus",
+                "nav": true ,
+                "iconCls":"icon icon-settings",
+                "type":"myworkpage"
+            }
+        ]
+    },
+    "appfunction":null
+
+}
+

@@ -1,0 +1,57 @@
+<<<<<<< HEAD
+#myreadContent{
+     /*padding-bottom: 60px;*/
+     /*position: absolute;
+     bottom: 100px;
+     top: 0px;
+     */
+      /*margin-bottom: 60px;*/
+      /*padding-bottom: 60px;*/
+      /*background-color: blue;*/
+}
+
+
+label.myread-switch{
+    /*background-color: red;*/
+    position: absolute;
+    /*bottom: 60px;
+    */
+     padding-bottom: 80px;
+=======
+label.myread-switch{
+    position: absolute;
+    margin-bottom: 60px;
+>>>>>>> a826b1046f3e561d5c7fd1f94ff46f6486888032
+    right: 10px;
+    width: 100px;
+    height: 24px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+}
+
+label.myread-switch span:nth-child(1){
+    /*width: 45px;*/
+    height: inherit;
+    background-size: 45px 24px;
+    flex-basis: 45px;
+}
+
+label.myread-switch span:nth-child(2){
+<<<<<<< HEAD
+    flex-basis: 55px;
+=======
+    flex-basis: 51px;
+>>>>>>> a826b1046f3e561d5c7fd1f94ff46f6486888032
+    height: inherit;
+    font-weight: initial;
+    line-height: 24px;
+}
+
+.mysearchErrorOn{
+    background-image: url(../img/yichang-2.png);
+}
+
+.mysearchErrorOff{
+    background-image: url(../img/yichang-1.png);
+}

@@ -1,0 +1,42 @@
+<div class="gzjlbar">
+    <div class="left">
+            工作经历:
+            <button id="btn3" data-bind='click:addWorkView'>添加公司</button>
+            </br>
+            <span>(请务必填写完整工作经历,由最近的任职经历开始填写)</span>
+    </div>
+</div>
+<ons-page class="mypage">
+    <table class="gzjl">
+        <tbody id="gzjltbody">
+            <tr id="gzjlbtr0" class="topb">
+                <td>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <input type="text" data-bind="value:record().C3_464174974466" placeholder="公司名称">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%"><input type="text" data-bind="value:record().C3_464174535762" placeholder="开始日期:1980-01-01"></td>
+                                <td width="50%"><input type="text" data-bind="value:record().C3_464174605218" placeholder="结束日期:1980-01-01"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" data-bind="value:record().C3_464175049944" placeholder="职称"></td>
+                                <td><input type="text" data-bind="value:record().C3_464458881276" placeholder="离职原因"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="topb">
+                <td>
+                    <input type="submit" value="提交" class="submit" data-bind="click:submitClickWork3">
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</ons-page>
