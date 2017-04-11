@@ -1,0 +1,42 @@
+.custom-tab{
+    position: fixed;
+    display: flex;
+    display: -webkit-flex;
+    z-index: 1100;
+    height: 49px;
+    bottom: 0;
+    width: 100%;
+    background-color:white;
+}
+
+nav.custom-tab a.custom-tab-item{
+    text-decoration:none;
+    color: gray;
+}
+
+nav.custom-tab a.custom-tab-item.active,nav.custom-tab a.custom-tab-item:active{
+    color: red; 
+    
+}
+
+
+.custom-tab-item{
+    display: flex;
+    display: -webkit-flex;
+    flex:1;
+    height: inherit;
+    flex-direction: column;
+}
+
+#custom-tab-icon{
+    height: 29px;
+}
+
+.custom-tab-title{
+    height: 40px;
+}
+
+#custom-tab-icon,.custom-tab-title{
+    text-align: center;
+   
+}

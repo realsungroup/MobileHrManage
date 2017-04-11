@@ -1,0 +1,10 @@
+
+
+ <div class="custom-nav-bar" data-bind="foreach : mysbusRouter">
+    <a data-bind="attr: { href: hash,id:hash}, text: title,css: { active: isActive }" class="custom-nav-item"   > </a>
+     
+  </div>
+
+ <div id='subpage' class="page-subhost col-md-10" style="padding: 0">
+      <!--ko router: { transition:'entrance', cacheViews:true }--><!--/ko-->
+</div>

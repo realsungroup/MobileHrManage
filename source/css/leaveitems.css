@@ -1,0 +1,54 @@
+.sick{
+color: rgb(255, 255, 255);
+ text-align: center;
+  width: 30px;
+   height: 30px; 
+   line-height: 30px; 
+   border-radius: 6px; 
+   font-size: 14px; 
+   background-color: rgb(148, 168, 189)
+}
+.leave{
+color: rgb(255, 255, 255);
+ text-align: center;
+  width: 30px;
+   height: 30px; 
+   line-height: 30px; 
+   border-radius: 6px; 
+   font-size: 14px; 
+   background-color: rgb(13, 168, 189)
+}
+
+.state-denied
+{
+color: rgb(255, 255, 255);
+ text-align: center;
+  width: 10px;
+   height: 10px; 
+   line-height: 30px; 
+   border-radius: 6px; 
+   font-size: 14px; 
+   background-color: rgb(13, 13, 189)
+}
+
+.itemactive
+{
+     background-color: lightgreen
+
+}
+#selectstates_dummy{
+    width:130px;
+    text-align: center;
+    border: transparent;
+    color: rgba(38,100,171,0.81);
+    font-size: 22px;
+    margin-top: 2px;
+}
+.addi{
+    font-size: 22px;
+}
+.rno{
+    padding-right: 10px;
+    color: rgba(38,100,171,0.81);
+    font-size: 26px;
+}

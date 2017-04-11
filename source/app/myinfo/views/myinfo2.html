@@ -1,0 +1,61 @@
+<div class="jyxxbar">
+    <div class="left">
+            学历/学位/证书:
+            <button id="btn1">添加证书</button>
+            <button id="btn2">添加学校</button>
+            </br>
+            <span>(请填写高中以上的交易经历,由最高学历开始填写)</span>
+    </div>
+</div>
+<ons-page class="mypage">
+    <table class="jyxx">
+        <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <tbody id="jyxxtbody">
+                            <tr id="jybtr0" class="topb">
+                                <td colspan="2">
+                                    <input type="text" placeholder="学校名称">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%"><input type="text" placeholder="开始日期"></td>
+                                <td width="50%"><input type="text" placeholder="结束日期"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="专业"></td>
+                                <td>
+                                    <select>
+                                        <option value="高中">高中</option>
+                                        <option value="大专">大专</option>
+                                        <option value="本科">本科</option>
+                                        <option value="硕士">硕士</option>
+                                        <option value="博士">博士</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot id="jyxxtfoot">
+                            <tr id="jyftr0" class="topb">
+                                <td><input type="text" placeholder="职业资格证书"></td>
+                                <td><input type="text" placeholder="等级"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="颁发机构"></td>
+                                <td><input type="text" placeholder="获得日期"></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="topb">
+                <td>
+                    <input type="submit" value="提交" class="submit">
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</ons-page>
