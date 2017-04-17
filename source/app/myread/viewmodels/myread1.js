@@ -1,11 +1,9 @@
 // define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'durandal/binder', 'myworkshell/viewmodels/mywork1'], function (app, ko, router, dialog, binder, mywork1) {
 define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery', 'editbase', 'durandal/system', 'editform', 'durandal/binder', 'durandal/viewEngine', 'myworkshell/viewmodels/mywork1'],
     function (app, ko, router, dialog, jquery, editbase, system, editform, binder, viewEngine,mywork1) {
-<<<<<<< HEAD
+
       var myreadOneResid = appConfig.app.myreadRouter[0].resid;
-=======
-      var resid = appConfig.app.myreadRouter[0].resid;
->>>>>>> a826b1046f3e561d5c7fd1f94ff46f6486888032
+
       var myread1Record = ko.observable({});
       var myreadBool = ko.observable('');
       return {
@@ -20,13 +18,10 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
                               self.myreadBool(mywork1.record().C3_544732580995);
                         });
                   }
-<<<<<<< HEAD
+
                   appConfig.app.dbs.dbGetdata(myreadOneResid, 0, "", cmswhere, fnSuccess, fnError, fnSyserror);
                   function fnSuccess(data, subdata, total) { 
-=======
-                  appConfig.app.dbs.dbGetdata(resid, 0, "", cmswhere, fnSuccess, fnError, fnSyserror);
-                  function fnSuccess(data, subdata, total) {
->>>>>>> a826b1046f3e561d5c7fd1f94ff46f6486888032
+
                         self.myread1Record(data[0]);
                   }
                   function fnError(data) {

@@ -1,0 +1,17 @@
+<ons-bottom-toolbar>
+  Content
+</ons-bottom-toolbar>
+<nav class="bar bar-tab" data-bind="foreach: rootRouter">
+    
+               <a class="tab-item"  data-bind="css: { active: isActive },attr: { href: hash }">
+                 <span data-bind="attr: {class:iconCls}"></span>
+                 <span class="tab-label"  data-bind="text: title"></span>
+               </a>
+  </nav>
+  <!--page-->
+<div class="page-host" data-bind="router: { transition:'entrance' }"></div>
+ 
+
+
+
+
