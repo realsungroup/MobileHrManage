@@ -5,35 +5,7 @@ define(['durandal/system'],function(system,require){
     this.dfd={};
      var that=this;
   };
- function fnSuccess(returnText,dfd){
-    try {
-            
-                dfd.resolve(returnText);
-                return;
-              
-          } catch (error) {
-               
-                dfd.reject(error);
-                
-              return ;
-          }
-       
-  }
-  
-   function fnError(returnText,dfd){
-    try {
-            
-                dfd.resolve(returnText);
-                return;
-              
-          } catch (error) {
-               
-                dfd.reject(error);
-                
-              return ;
-          }
-       
-  }
+ 
   function fnsaved(returnText,dfd){
     try {
             
@@ -53,7 +25,7 @@ function fnnosave(error,dfd){
           dfd.reject(error.message);
           return ;
        }
-function fnsyserror(jqXHR, textStatus, errorThrown,dfd){
+function fnsyserror(error){
           
          dfd.reject("系统错误");
         return ;
@@ -61,31 +33,8 @@ function fnsyserror(jqXHR, textStatus, errorThrown,dfd){
   editbase.prototype.getData = function(){
   
   };
-  editbase.prototype.editoraddData=function(row,uniqueColumns)
-  {
-      var aRecord=new onerecord(0,"editoradd");
-      var records=[];
-      var self=this;
-      row=$.extend(row,aRecord);
-      records.push(row);
-      var json=JSON.stringify(records);
-      if (uniqueColumns==undefined){
-         var uniqueColumns="";
-      }
-
-      return system.defer(function(dfd){
-         try {
-             appConfig.app.dbs.dbSavedataWithparm2(self.resid,0,json,"0","1","1",uniqueColumns, fnSuccess, fnError, fnsyserror,dfd);
-             
-           
-         } catch (error) {
-            dfd.reject(error);
-           
-         }
-      }).promise();
-  }
   editbase.prototype.addData = function(row){
-      var aRecord=new onerecord(0,"added");
+     var aRecord=new onerecord(0,"added");
       var records=[];
       var self=this;
       row=$.extend(row,aRecord);
@@ -101,21 +50,6 @@ function fnsyserror(jqXHR, textStatus, errorThrown,dfd){
          }
       }).promise();
   };
-   editbase.prototype.saveBatchData = function(rows){
-      var json=JSON.stringify(rows);
-        var self=this;
-      return system.defer(function(dfd){
-         try {
-             appConfig.app.dbs.dbSavedata(self.resid,0,json,fnsaved,fnnosave,fnsyserror,dfd);
-           
-         } catch (error) {
-            dfd.reject(error);
-           
-         }
-        
-      
-      }).promise();
-   }
   editbase.prototype.saveData = function(row){
       var aRecord=new onerecord(row.REC_ID,"modified");
       var records=[];
@@ -137,20 +71,6 @@ function fnsyserror(jqXHR, textStatus, errorThrown,dfd){
      
    
   };
-  editbase.prototype.getSubData=function(subresid,cmswhere,cmsorder,pageSize,pageIndex,dfd)
-  {
-    var self=this;
-     return system.defer(function(dfd){
-         try {
-             appConfig.app.dbs.GetRelTableByHostRecord(self.resid,subresid,self.recid,cmswhere,cmsorder,pageSize,pageIndex,fnSuccess, fnError, fnsyserror,dfd)
-           
-         } catch (error) {
-            dfd.reject(error);
-           
-         }
-      
-      }).promise();
-  }
   editbase.prototype.modifyDataField = function(hash){
     //do some ajax and return a promise
       var aRecord=new onerecord(this.recid,"modified");
@@ -171,7 +91,6 @@ function fnsyserror(jqXHR, textStatus, errorThrown,dfd){
       
       }).promise();
   };
-   
    editbase.prototype.deletebyrecid = function(){
     //do some ajax and return a promise
       var aRecord=new onerecord(this.recid,"deleted");

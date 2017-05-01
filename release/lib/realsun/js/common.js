@@ -543,7 +543,7 @@ appfunctions.system=new function(){
         var url;
         var cmswhere="C3_511297475786='"+openid+"'";               
         var self=this;
-        url = appConfig.app.baseUrl + "&method=" + appConfig.app.getMethod + "&user=" + appConfig.app.hostuser + "&ucode=" + appConfig.app.hostucode + "&resid=" + appConfig.app.hostwebpos + "&cmswhere=" + cmswhere;
+        url = appConfig.app.baseUrl + "&method=" + appConfig.app.getMethod + "&user=" + appConfig.app.hostuser + "&AccessToken=" + appConfig.app.hostucode + "&resid=" + appConfig.app.hostwebpos + "&cmswhere=" + cmswhere;
           $.ajax({
             url: url,
             dataType: "jsonp",
@@ -702,7 +702,7 @@ var onerecord=(function()
     return onerecord;
 }());
 var dbHelper = (function () {
-    function dbHelper(baseurl, user, ucode) {
+    function dbHelper(baseurl, user, AccessToken) {
 
         this.saveMethod = appConfig.app.saveMethod;
         this.getMethod = appConfig.app.getMethod;
@@ -717,16 +717,19 @@ var dbHelper = (function () {
              this.baseUrl = baseurl;
         }
         this.user = user;
-        this.ucode = ucode;
+        this.AccessToken = AccessToken;
     }
         dbHelper.prototype.dbGetLittleDataBysql = function (resid, f3svc_sql, fnSuccess, fnError, fnSyserror)
     {
         var url;
-        url = this.baseUrl + "&method=" + this.getBysqlMethod + "&user=" + this.user + "&ucode=" + this.ucode + "&resid=" + resid  + "&f3svc_sql=" + f3svc_sql;
+        url = this.baseUrl + "&method=" + this.getBysqlMethod;
         $.ajax({
             url: url,
             dataType: "jsonp",
             jsonp: "jsoncallback",
+             type: 'post',
+            data:{AccessToken:this.AccessToken,user:this.user,resid:resid,subresid:subresid,cmswhere:cmswhere,key:key,hostrecid:hostrecid,cmsorder:cmsorder,f3svc_sql:f3svc_sql},
+           
             success: function (text) {
                 if (text !== "") {
                     var data;
@@ -768,11 +771,14 @@ var dbHelper = (function () {
     dbHelper.prototype.dbGetCmsColumns = function (resid, fnSuccess, fnError, fnSyserror,dfd)
     {
         var url;
-        url = this.baseUrl + "&method=" +this.GetCmsColumnsMethod + "&user=" + this.user + "&ucode=" + this.ucode + "&resid=" + resid;
+        url = this.baseUrl + "&method=" +this.GetCmsColumnsMethod;
         $.ajax({
             url: url,
             dataType: "jsonp",
             jsonp: "jsoncallback",
+            type: 'post',
+            data:{AccessToken:this.AccessToken,user:this.user,resid:resid,subresid:subresid,cmswhere:cmswhere,key:key,hostrecid:hostrecid,cmsorder:cmsorder},
+           
             success: function (text) {
                 if (text !== "") {
                     var data;
@@ -819,7 +825,7 @@ var dbHelper = (function () {
         if (cmsorder==undefined){cmswhere="";}
         if (pageSize=undefined){pageSize=0;}
         // appConfig.appfunction.system.maskLoading();
-        url = this.baseUrl + "&method=ajax_GetRelTableByHostRecord&user=" + this.user + "&ucode=" + this.ucode + "&resid=" + resid + "&subresid=" + subresid + "&hostrecid=" + hostrecid+ "&cmswhere=" + cmswhere+"&cmsorder=" +cmsorder;
+        url = this.baseUrl + "&method=ajax_GetRelTableByHostRecord";
         
         if ((pageSize >0))
         {
@@ -829,6 +835,8 @@ var dbHelper = (function () {
             url: url,
             dataType: "jsonp",
             jsonp: "jsoncallback",
+            type: 'post',
+            data:{AccessToken:this.AccessToken,user:this.user,resid:resid,subresid:subresid,cmswhere:cmswhere,key:key,hostrecid:hostrecid,cmsorder:cmsorder},
             success: function (text) {
              
                 if (text !== "") {
@@ -871,7 +879,7 @@ var dbHelper = (function () {
     dbHelper.prototype.dbGetdata = function (resid, subresid, key,cmswhere, fnSuccess, fnError, fnSyserror,pageSize,pageIndex) {
         var url;
         // appConfig.appfunction.system.maskLoading();
-        url = this.baseUrl + "&method=" + this.getMethod + "&user=" + this.user + "&ucode=" + this.ucode + "&resid=" + resid + "&subresid=" + subresid + "&cmswhere=" + cmswhere+"&key=" +key;
+        url = this.baseUrl + "&method=" + this.getMethod;
         if ((pageSize >0))
         {
              url=url+"&pageIndex="+pageIndex+"&pageSize="+pageSize;
@@ -881,6 +889,8 @@ var dbHelper = (function () {
             url: url,
             dataType: "jsonp",
             jsonp: "jsoncallback",
+             type: 'post',
+             data:{AccessToken:this.AccessToken,user:this.user,resid:resid,subresid:subresid,cmswhere:cmswhere,key:key},
             success: function (text) {
                // appConfig.appfunction.system.maskHide();
                 if (text !== "") {
@@ -922,14 +932,14 @@ var dbHelper = (function () {
                 }
             } });
     };
-    dbHelper.prototype.doDbSavedata = function (resid, subresid, json, url,fnSuccess, fnError, fnSyserror,dfd) {
+    dbHelper.prototype.doDbSavedata = function (resid, subresid, json, url,AccessToken,fnSuccess, fnError, fnSyserror,dfd) {
          $.ajax({
             url: url,
             async: false,
             dataType: "jsonp",
             jsonp: "jsoncallback",
             type: 'post',
-            data: { data: json, resid: resid },
+            data: { data: json, resid: resid,AccessToken:AccessToken},
             cache: false,
             success: function (text) {
                 if (text.error == "0") {
@@ -954,18 +964,18 @@ var dbHelper = (function () {
 
     dbHelper.prototype.dbSavedata = function (resid, subresid, json, fnSuccess, fnError, fnSyserror,dfd) {
         var url;
-        url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user + "&ucode=" + this.ucode;
-        dbHelper.prototype.doDbSavedata(resid, subresid, json, url,fnSuccess, fnError, fnSyserror,dfd);
+        url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user;
+        dbHelper.prototype.doDbSavedata(resid, subresid, json, url,this.AccessToken,fnSuccess, fnError, fnSyserror,dfd);
     };
     dbHelper.prototype.dbSavedataWithparm = function (resid, subresid, json,withoutdata,formulalayer,synchronizedat, fnSuccess, fnError, fnSyserror,dfd) {
         var url;
-        url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user + "&ucode=" + this.ucode+"&withoutdata="+withoutdata+"&formulalayer="+formulalayer+"&synchronizedat="+synchronizedat;
-        dbHelper.prototype.doDbSavedata(resid, subresid, json, url,fnSuccess, fnError, fnSyserror,dfd);
+        url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user+"&withoutdata="+withoutdata+"&formulalayer="+formulalayer+"&synchronizedat="+synchronizedat;
+        dbHelper.prototype.doDbSavedata(resid, subresid, json, url,this.AccessToken,fnSuccess, fnError, fnSyserror,dfd);
     };
     dbHelper.prototype.dbSavedataWithparm2 = function (resid, subresid, json,withoutdata,formulalayer,synchronizedat,uniquecolumns, fnSuccess, fnError, fnSyserror,dfd) {
         var url;
-        url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user + "&ucode=" + this.ucode+"&withoutdata="+withoutdata+"&formulalayer="+formulalayer+"&synchronizedat="+synchronizedat+"&uniquecolumns="+uniquecolumns;
-        dbHelper.prototype.doDbSavedata(resid, subresid, json, url,fnSuccess, fnError, fnSyserror,dfd);
+        url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user +"&withoutdata="+withoutdata+"&formulalayer="+formulalayer+"&synchronizedat="+synchronizedat+"&uniquecolumns="+uniquecolumns;
+        dbHelper.prototype.doDbSavedata(resid, subresid, json, url,this.AccessToken,fnSuccess, fnError, fnSyserror,dfd);
     };
     return dbHelper;
 }());

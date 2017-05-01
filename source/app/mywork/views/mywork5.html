@@ -1,9 +1,10 @@
+
 <ons-page class="mypage">
     <div class="qtbar">
-        <div class="left">
-            其他需要告知公司信息:
-        </div>
+    <div class="left">
+        其他需要告知公司信息:
     </div>
+</div>
     <table class="table page-mag">
         <tbody>
             <tr>
@@ -15,8 +16,7 @@
             </tr>
             <tr>
                 <td>
-                    <textarea class="form-control" rows="5" data-bind="value:record().C3_464184775908,disable:record().C3_471002935941 == 'Y'"
-                        style="width:100%;resize:none">
+                    <textarea class="form-control" rows="5" data-bind="value:record().C3_464184775908,disable:record().C3_471002935941 == 'Y'" style="width:100%;resize:none">
 
                     </textarea>
                 </td>
@@ -30,8 +30,7 @@
             </tr>
             <tr>
                 <td>
-                    <textarea class="form-control" rows="5" data-bind="value:record().C3_464184788901,disable:record().C3_471002935941 == 'Y'"
-                        style="width:100%;resize:none">
+                    <textarea class="form-control" rows="5" data-bind="value:record().C3_464184788901,disable:record().C3_471002935941 == 'Y'" style="width:100%;resize:none">
 
                     </textarea>
                 </td>
@@ -45,15 +44,14 @@
             </tr>
             <tr>
                 <td>
-                    <textarea class="form-control" rows="5" data-bind="value:record().C3_464277267009,disable:record().C3_471002935941 == 'Y'"
-                        style="width:100%;resize:none">
+                    <textarea class="form-control" rows="5" data-bind="value:record().C3_464277267009,disable:record().C3_471002935941 == 'Y'" style="width:100%;resize:none">
 
                     </textarea>
                 </td>
             </tr>
         </tbody>
-        <tfoot>
-            <tr>
+        <tfoot id="qtxxtfoot">
+            <tr id="tftr0" class="topb">
                 <td>
                     <span>本人承诺:</span>
                     <p>
@@ -66,20 +64,7 @@
             </tr>
             <tr>
                 <td>
-                    本人最近两年内是否有违法犯罪纪律?
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label class="checkbox-inline">
-	            	 <input type="checkbox" name="C3_546462266120"  data-bind="checked:yesSin,disable:record().C3_471002935941 == 'Y'">是
-	                </label>
-
-                    <label class="checkbox-inline"> 
-                        <input style="margin-left:20px" type="checkbox" name="C3_546462266120" data-bind="checked:falseSin,disable:record().C3_471002935941 == 'Y'">否
-	                </label>
-
-
+                    <input type="checkbox" data-bind="disable:record().C3_471002935941 == 'Y'">本人最近两年内是否有违法犯罪纪律?
                 </td>
             </tr>
             <tr>

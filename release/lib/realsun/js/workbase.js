@@ -360,14 +360,11 @@ workbase = (function () {
                     mte = 30;
                 } else if (itemTitle == '年假') {
                     hor = 4;
-                    mte = 60;
                 } else if (itemTitle == '哺乳假') {
-                    mte = 60;
                 } else if (itemTitle == '丧假' ||
                     itemTitle == '路程假' ||
                     itemTitle == '产前检查假') {
                     hor = 8;
-                    mte = 60;
                 }
                 // optStart.default.steps['minute'] = mte;
                 optEnd.default.steps['minute'] = mte;

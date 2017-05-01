@@ -8,7 +8,11 @@ var lastResult={"error":0,"message":""};
                       
             appConfig.appfunction.system.doLoginbyunionid(unionid,
                         function(){
-                            dologinApp(appConfig.app.userConfig.LoginID,appConfig.app.userConfig.Password,callback);
+                              var baseUrl=appConfig.app.userProfile.EMP_LOGIN_URL;
+                              
+                               var dbs=new dbHelper(baseUrl,appConfig.app.userConfig.LoginID,appConfig.app.userConfig.PassEncrypted);
+                                 appConfig.appfunction.system.setAppDbs(dbs);
+                                 callback(true);
                           },
                         function(error){
                                     
@@ -24,29 +28,7 @@ var lastResult={"error":0,"message":""};
                     }
                     
     }
-    function dologinApp(user,upass,callback){
-         appConfig.appfunction.system.doLogin(user,upass,fnSuccess, fnError);
-                function fnSuccess(data){
-                     var baseUrl=appConfig.app.userProfile.EMP_LOGIN_URL;
-                     var dbs=new dbHelper(baseUrl,data.user,data.ucode);
-                 
-                     appConfig.appfunction.system.setAppDbs(dbs);
-                     callback(true);
-                     
-                    
-                }
-                function fnError(data){
-                   
-                     appConfig.appfunction.system.clearAppConfig();
-                     
-                     lastResult.error=-1;
-                     lastResult.message='微信账户登入失败，错误信息：'+data.message;
-                     callback(false);
-                   
-                     
-                }
-                
-    }
+   
     
     function startLoginApp(unionid,callbackMain){
            loginApp(unionid,function(result){

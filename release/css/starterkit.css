@@ -574,19 +574,7 @@ select{
     margin-right: 50px;
 }
 
-
-/*.bus-cell .bus-line-type{
-    display: inline-block;
-    position: absolute;
-    width: 40px;
-    height: 20px;
-    font-size: 12px;
-    color: gray;
-    bottom: 10px;
-    right: 10px;
-}*/
-
-.bus-cell .bus-apply{
+.bus-cell span{
     display: inline-block;
     position: absolute;
     width: 40px;
