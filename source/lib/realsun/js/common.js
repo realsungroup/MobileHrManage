@@ -932,14 +932,14 @@ var dbHelper = (function () {
                 }
             } });
     };
-    dbHelper.prototype.doDbSavedata = function (resid, subresid, json, url,fnSuccess, fnError, fnSyserror,dfd) {
+    dbHelper.prototype.doDbSavedata = function (resid, subresid, json, url,AccessToken,fnSuccess, fnError, fnSyserror,dfd) {
          $.ajax({
             url: url,
             async: false,
             dataType: "jsonp",
             jsonp: "jsoncallback",
             type: 'post',
-            data: { data: json, resid: resid,AccessToken:this.AccessToken},
+            data: { data: json, resid: resid,AccessToken:AccessToken},
             cache: false,
             success: function (text) {
                 if (text.error == "0") {
@@ -965,17 +965,17 @@ var dbHelper = (function () {
     dbHelper.prototype.dbSavedata = function (resid, subresid, json, fnSuccess, fnError, fnSyserror,dfd) {
         var url;
         url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user;
-        dbHelper.prototype.doDbSavedata(resid, subresid, json, url,fnSuccess, fnError, fnSyserror,dfd);
+        dbHelper.prototype.doDbSavedata(resid, subresid, json, url,this.AccessToken,fnSuccess, fnError, fnSyserror,dfd);
     };
     dbHelper.prototype.dbSavedataWithparm = function (resid, subresid, json,withoutdata,formulalayer,synchronizedat, fnSuccess, fnError, fnSyserror,dfd) {
         var url;
         url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user+"&withoutdata="+withoutdata+"&formulalayer="+formulalayer+"&synchronizedat="+synchronizedat;
-        dbHelper.prototype.doDbSavedata(resid, subresid, json, url,fnSuccess, fnError, fnSyserror,dfd);
+        dbHelper.prototype.doDbSavedata(resid, subresid, json, url,this.AccessToken,fnSuccess, fnError, fnSyserror,dfd);
     };
     dbHelper.prototype.dbSavedataWithparm2 = function (resid, subresid, json,withoutdata,formulalayer,synchronizedat,uniquecolumns, fnSuccess, fnError, fnSyserror,dfd) {
         var url;
         url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user +"&withoutdata="+withoutdata+"&formulalayer="+formulalayer+"&synchronizedat="+synchronizedat+"&uniquecolumns="+uniquecolumns;
-        dbHelper.prototype.doDbSavedata(resid, subresid, json, url,fnSuccess, fnError, fnSyserror,dfd);
+        dbHelper.prototype.doDbSavedata(resid, subresid, json, url,this.AccessToken,fnSuccess, fnError, fnSyserror,dfd);
     };
     return dbHelper;
 }());
