@@ -1,4 +1,4 @@
- 
+﻿ 
  var onloadFn = function() {
      colors = {
        progress: "#FFA",

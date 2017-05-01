@@ -728,7 +728,7 @@ var dbHelper = (function () {
             dataType: "jsonp",
             jsonp: "jsoncallback",
              type: 'post',
-            data:{AccessToken:this.AccessToken,user:this.user,resid:resid,subresid:subresid,cmswhere:cmswhere,key:key,hostrecid:hostrecid,cmsorder:cmsorder,f3svc_sql:f3svc_sql},
+            data:{AccessToken:this.AccessToken,user:this.user,resid:resid,f3svc_sql:f3svc_sql},
            
             success: function (text) {
                 if (text !== "") {
@@ -777,7 +777,7 @@ var dbHelper = (function () {
             dataType: "jsonp",
             jsonp: "jsoncallback",
             type: 'post',
-            data:{AccessToken:this.AccessToken,user:this.user,resid:resid,subresid:subresid,cmswhere:cmswhere,key:key,hostrecid:hostrecid,cmsorder:cmsorder},
+            data:{AccessToken:this.AccessToken,user:this.user,resid:resid},
            
             success: function (text) {
                 if (text !== "") {
@@ -836,7 +836,7 @@ var dbHelper = (function () {
             dataType: "jsonp",
             jsonp: "jsoncallback",
             type: 'post',
-            data:{AccessToken:this.AccessToken,user:this.user,resid:resid,subresid:subresid,cmswhere:cmswhere,key:key,hostrecid:hostrecid,cmsorder:cmsorder},
+            data:{AccessToken:this.AccessToken,user:this.user,resid:resid,subresid:subresid,cmswhere:cmswhere,hostrecid:hostrecid,cmsorder:cmsorder},
             success: function (text) {
              
                 if (text !== "") {
