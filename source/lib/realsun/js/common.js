@@ -1,7 +1,4 @@
-var appfunctions = appfunctions || {};
-var appConfig;
-var online=null;
-var overlay={};
+
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -17,9 +14,9 @@ appfunctions.system=new function(){
        }
         var opts = {
 		lines: 13, // The number of lines to draw
-		length: 11, // The length of each line
-		width: 5, // The line thickness
-		radius: 17, // The radius of the inner circle
+		length: 7, // The length of each line
+		width: 3, // The line thickness
+		radius: 8, // The radius of the inner circle
 		corners: 1, // Corner roundness (0..1)
 		rotate: 0, // The rotation offset
 		color: '#FFF', // #rgb or #rrggbb
@@ -44,8 +41,8 @@ appfunctions.system=new function(){
 
         var w=window.screen.width;
         var h=window.screen.height;
-        $('.ui-ios-overlay').css("top",h/2-225+"px");
-        $('.ui-ios-overlay').css("left",w/2-75+"px");
+        $('.ui-ios-overlay').css("top",h/2-120+"px");
+        $('.ui-ios-overlay').css("left",w/2-50+"px");
 
     };
     this.maskSuccess=function(msg,callback){
@@ -87,7 +84,7 @@ appfunctions.system=new function(){
     };
     this.maskHide=function(){
         overlay.hide();
-        $('.newDiv').hide();
+        $('.newDiv').remove();
     };
      this.wxconfig=null;
      this.uploadImage= function (url,localId, fieldNo, imgSeq,callback) {
@@ -546,7 +543,7 @@ appfunctions.system=new function(){
         var url;
         var cmswhere="C3_511297475786='"+openid+"'";               
         var self=this;
-        url = appConfig.app.baseUrl + "&method=" + appConfig.app.getMethod + "&user=" + appConfig.app.hostuser + "&ucode=" + appConfig.app.hostucode + "&resid=" + appConfig.app.hostwebpos + "&cmswhere=" + cmswhere;
+        url = appConfig.app.baseUrl + "&method=" + appConfig.app.getMethod + "&user=" + appConfig.app.hostuser + "&AccessToken=" + appConfig.app.hostucode + "&resid=" + appConfig.app.hostwebpos + "&cmswhere=" + cmswhere;
           $.ajax({
             url: url,
             dataType: "jsonp",
@@ -705,7 +702,7 @@ var onerecord=(function()
     return onerecord;
 }());
 var dbHelper = (function () {
-    function dbHelper(baseurl, user, ucode) {
+    function dbHelper(baseurl, user, AccessToken) {
 
         this.saveMethod = appConfig.app.saveMethod;
         this.getMethod = appConfig.app.getMethod;
@@ -720,16 +717,19 @@ var dbHelper = (function () {
              this.baseUrl = baseurl;
         }
         this.user = user;
-        this.ucode = ucode;
+        this.AccessToken = AccessToken;
     }
         dbHelper.prototype.dbGetLittleDataBysql = function (resid, f3svc_sql, fnSuccess, fnError, fnSyserror)
     {
         var url;
-        url = this.baseUrl + "&method=" + this.getBysqlMethod + "&user=" + this.user + "&ucode=" + this.ucode + "&resid=" + resid  + "&f3svc_sql=" + f3svc_sql;
+        url = this.baseUrl + "&method=" + this.getBysqlMethod;
         $.ajax({
             url: url,
             dataType: "jsonp",
             jsonp: "jsoncallback",
+             type: 'post',
+            data:{AccessToken:this.AccessToken,user:this.user,resid:resid,subresid:subresid,cmswhere:cmswhere,key:key,hostrecid:hostrecid,cmsorder:cmsorder,f3svc_sql:f3svc_sql},
+           
             success: function (text) {
                 if (text !== "") {
                     var data;
@@ -771,11 +771,14 @@ var dbHelper = (function () {
     dbHelper.prototype.dbGetCmsColumns = function (resid, fnSuccess, fnError, fnSyserror,dfd)
     {
         var url;
-        url = this.baseUrl + "&method=" +this.GetCmsColumnsMethod + "&user=" + this.user + "&ucode=" + this.ucode + "&resid=" + resid;
+        url = this.baseUrl + "&method=" +this.GetCmsColumnsMethod;
         $.ajax({
             url: url,
             dataType: "jsonp",
             jsonp: "jsoncallback",
+            type: 'post',
+            data:{AccessToken:this.AccessToken,user:this.user,resid:resid,subresid:subresid,cmswhere:cmswhere,key:key,hostrecid:hostrecid,cmsorder:cmsorder},
+           
             success: function (text) {
                 if (text !== "") {
                     var data;
@@ -814,20 +817,80 @@ var dbHelper = (function () {
             } });
 
     }
-    dbHelper.prototype.dbGetdata = function (resid, subresid, key,cmswhere, fnSuccess, fnError, fnSyserror,pageSize,pageIndex) {
+    dbHelper.prototype.GetRelTableByHostRecord=function(resid,subresid,hostrecid,cmswhere,cmsorder,pageSize,pageIndex,fnSuccess, fnError, fnSyserror,dfd)
+    {
+        
         var url;
+        if (cmswhere==undefined){cmswhere="";}
+        if (cmsorder==undefined){cmswhere="";}
+        if (pageSize=undefined){pageSize=0;}
         // appConfig.appfunction.system.maskLoading();
-        url = this.baseUrl + "&method=" + this.getMethod + "&user=" + this.user + "&ucode=" + this.ucode + "&resid=" + resid + "&subresid=" + subresid + "&cmswhere=" + cmswhere+"&key=" +key;
+        url = this.baseUrl + "&method=ajax_GetRelTableByHostRecord";
+        
         if ((pageSize >0))
         {
              url=url+"&pageIndex="+pageIndex+"&pageSize="+pageSize;
         }
-        console.log('------------->user' + this.user +"  " +"-----------> ucode"+this.ucode);
+        $.ajax({
+            url: url,
+            dataType: "jsonp",
+            jsonp: "jsoncallback",
+            type: 'post',
+            data:{AccessToken:this.AccessToken,user:this.user,resid:resid,subresid:subresid,cmswhere:cmswhere,key:key,hostrecid:hostrecid,cmsorder:cmsorder},
+            success: function (text) {
+             
+                if (text !== "") {
+                    var data;
+                    if (typeof(text)=='object')
+                    {
+                        data =text;
+                    }
+                    else
+                    {
+                        data = JSON.parse(text);
+                    }
+                   
+                    if (data.error == -1) {
+                        if (fnError != null) {
+                            fnError(data,dfd);
+                            return;
+                        }
+                    }
+                    var adata = [];
+                 
+                    var total=0;
+                    adata = data.data;
+                    if (data.total)
+                    {  total = data.total;}
+                 
+                    
+                    if (fnSuccess != null) {
+                        
+                        fnSuccess(data,dfd);
+                    }
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                if (fnSyserror != null) {
+                    fnSyserror(jqXHR, textStatus, errorThrown,dfd);
+                }
+            } });
+    }
+    dbHelper.prototype.dbGetdata = function (resid, subresid, key,cmswhere, fnSuccess, fnError, fnSyserror,pageSize,pageIndex) {
+        var url;
+        // appConfig.appfunction.system.maskLoading();
+        url = this.baseUrl + "&method=" + this.getMethod;
+        if ((pageSize >0))
+        {
+             url=url+"&pageIndex="+pageIndex+"&pageSize="+pageSize;
+        }
         
         $.ajax({
             url: url,
             dataType: "jsonp",
             jsonp: "jsoncallback",
+             type: 'post',
+             data:{AccessToken:this.AccessToken,user:this.user,resid:resid,subresid:subresid,cmswhere:cmswhere,key:key},
             success: function (text) {
                // appConfig.appfunction.system.maskHide();
                 if (text !== "") {
@@ -876,7 +939,7 @@ var dbHelper = (function () {
             dataType: "jsonp",
             jsonp: "jsoncallback",
             type: 'post',
-            data: { data: json, resid: resid },
+            data: { data: json, resid: resid,AccessToken:this.AccessToken},
             cache: false,
             success: function (text) {
                 if (text.error == "0") {
@@ -898,14 +961,20 @@ var dbHelper = (function () {
         });
 
     }
+
     dbHelper.prototype.dbSavedata = function (resid, subresid, json, fnSuccess, fnError, fnSyserror,dfd) {
         var url;
-        url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user + "&ucode=" + this.ucode;
+        url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user;
         dbHelper.prototype.doDbSavedata(resid, subresid, json, url,fnSuccess, fnError, fnSyserror,dfd);
     };
     dbHelper.prototype.dbSavedataWithparm = function (resid, subresid, json,withoutdata,formulalayer,synchronizedat, fnSuccess, fnError, fnSyserror,dfd) {
         var url;
-        url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user + "&ucode=" + this.ucode+"&withoutdata="+withoutdata+"&formulalayer="+formulalayer+"&synchronizedat="+synchronizedat;
+        url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user+"&withoutdata="+withoutdata+"&formulalayer="+formulalayer+"&synchronizedat="+synchronizedat;
+        dbHelper.prototype.doDbSavedata(resid, subresid, json, url,fnSuccess, fnError, fnSyserror,dfd);
+    };
+    dbHelper.prototype.dbSavedataWithparm2 = function (resid, subresid, json,withoutdata,formulalayer,synchronizedat,uniquecolumns, fnSuccess, fnError, fnSyserror,dfd) {
+        var url;
+        url = this.baseUrl + "&method=" + this.saveMethod + "&user=" + this.user +"&withoutdata="+withoutdata+"&formulalayer="+formulalayer+"&synchronizedat="+synchronizedat+"&uniquecolumns="+uniquecolumns;
         dbHelper.prototype.doDbSavedata(resid, subresid, json, url,fnSuccess, fnError, fnSyserror,dfd);
     };
     return dbHelper;
@@ -1037,6 +1106,16 @@ if (document.cookie.length>0)
   }
 return ""
 }
+function generateUUID() {
+var d = new Date().getTime();
+var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+  var r = (d + Math.random()*16)%16 | 0;
+  d = Math.floor(d/16);
+  return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+});
+return uuid;
+};
+
 //设置cookie，有效期为365天
 //setCookie('username','123',365);
  

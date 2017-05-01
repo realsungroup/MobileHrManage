@@ -13,11 +13,11 @@ requirejs.config({
         'myworkshell':'mywork/',
         'myworkbase':'mywork/',
         'mobiscroll':'../lib/mobiscorll/mobiscroll.custom-3.0.0-beta2.min',
-        'editbase':'host/editbase',
+        'editbase':'../lib/realsun/host/editbase',
         'editform':'host/editform',
         "mywork1":'mywork/viewmodels/mywork1',
-        "mywork11":'mywork/viewmodels/',
-        
+        "myworkvm":'mywork/viewmodels/',
+        "busvm":"mysbus/viewmodels/",
     },
     shim: {
         'bootstrap': {
@@ -70,7 +70,7 @@ define(['durandal/system', 'knockout','durandal/app', 'durandal/viewLocator', 'b
                   
           });
 
-         startApp();
+        //  startApp();
          
 // 
   

@@ -1,12 +1,12 @@
-<div class="qtbar">
-    <div class="left">
-            其他需要告知公司信息:
-    </div>
-</div>
 <ons-page class="mypage">
-    <table class="qtxx">
-        <tbody id="qtxxtbody">
-            <tr class="topb">
+    <div class="qtbar">
+        <div class="left">
+            其他需要告知公司信息:
+        </div>
+    </div>
+    <table class="table page-mag">
+        <tbody>
+            <tr>
                 <td>
                     <span>
                         1.是否得过严重的疾病?目前身体状态如何?是否有传染病、慢性病或怀孕等？如是，请详细说明。
@@ -15,7 +15,8 @@
             </tr>
             <tr>
                 <td>
-                    <textarea rows="5" data-bind="value:record().C3_464184775908" style="width:100%;resize:none">
+                    <textarea class="form-control" rows="5" data-bind="value:record().C3_464184775908,disable:record().C3_471002935941 == 'Y'"
+                        style="width:100%;resize:none">
 
                     </textarea>
                 </td>
@@ -29,7 +30,8 @@
             </tr>
             <tr>
                 <td>
-                    <textarea rows="5" data-bind="value:record().C3_464184788901" style="width:100%;resize:none">
+                    <textarea class="form-control" rows="5" data-bind="value:record().C3_464184788901,disable:record().C3_471002935941 == 'Y'"
+                        style="width:100%;resize:none">
 
                     </textarea>
                 </td>
@@ -43,14 +45,15 @@
             </tr>
             <tr>
                 <td>
-                    <textarea rows="5" data-bind="value:record().C3_464277267009" style="width:100%;resize:none">
+                    <textarea class="form-control" rows="5" data-bind="value:record().C3_464277267009,disable:record().C3_471002935941 == 'Y'"
+                        style="width:100%;resize:none">
 
                     </textarea>
                 </td>
             </tr>
         </tbody>
-        <tfoot id="qtxxtfoot">
-            <tr id="tftr0" class="topb">
+        <tfoot>
+            <tr>
                 <td>
                     <span>本人承诺:</span>
                     <p>
@@ -62,10 +65,36 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <input type="submit" data-bind="click:submitClickWork5" value="提交" class="submit">
+                <td>
+                    本人最近两年内是否有违法犯罪纪律?
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="checkbox-inline">
+	            	 <input type="checkbox" name="C3_546462266120"  data-bind="checked:yesSin,disable:record().C3_471002935941 == 'Y'">是
+	                </label>
+
+                    <label class="checkbox-inline"> 
+                        <input style="margin-left:20px" type="checkbox" name="C3_546462266120" data-bind="checked:falseSin,disable:record().C3_471002935941 == 'Y'">否
+	                </label>
+
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <div class="next-btn-two">
+                        <button type="button" class="btn btn-primary col-xs-6" data-bind="click:routeBack">上一步</button>
+                        <button type="button" class="btn btn-primary col-xs-6" data-bind="click:goToMySign">下一步</button>
+                    </div>
+
                 </td>
             </tr>
         </tfoot>
+
     </table>
+
+
 </ons-page>

@@ -1,42 +1,58 @@
-<div class="gzjlbar">
-    <div class="left">
-            工作经历:
-            <button id="btn3" data-bind='click:addWorkView'>添加公司</button>
-            </br>
-            <span>(请务必填写完整工作经历,由最近的任职经历开始填写)</span>
-    </div>
-</div>
 <ons-page class="mypage">
-    <table class="gzjl">
-        <tbody id="gzjltbody">
-            <tr id="gzjlbtr0" class="topb">
-                <td>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td colspan="2">
-                                    <input type="text" data-bind="value:record().C3_464174974466" placeholder="公司名称">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="50%"><input type="text" data-bind="value:record().C3_464174535762" placeholder="开始日期:1980-01-01"></td>
-                                <td width="50%"><input type="text" data-bind="value:record().C3_464174605218" placeholder="结束日期:1980-01-01"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" data-bind="value:record().C3_464175049944" placeholder="职称"></td>
-                                <td><input type="text" data-bind="value:record().C3_464458881276" placeholder="离职原因"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr class="topb">
-                <td>
-                    <input type="submit" value="提交" class="submit" data-bind="click:submitClickWork3">
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+
+    <div class="school-nav padd-rt-five">
+        工作经历:
+        <button id="btn3" type="button" class="btn btn-primary" data-bind="click:addWorkView,disable:record().C3_471002935941 == 'Y'">添加公司</button>
+        </br>
+        <p class="text-muted">(请务必填写完整工作经历,由最近的任职经历开始填写)</p>
+    </div>
+
+    <form class="form-horizontal page-padd">
+        <!-- ko foreach:schoolModelArr -->
+
+        <div class="form-group" >
+            <div class="col-xs-10 padd-rt-five" >
+                <div class="col-xs-6 padd-rt-five" >
+
+                    <input class="form-control" type="text" data-bind="value:companyName,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="公司名称">
+                </div>
+                <div class="col-xs-6 padd-rt-five">
+
+                    <input class="form-control appDate text-left readonly-while-bg" readonly type="input" data-bind="value:startTime,disable:$parent.record().C3_471002935941 == 'Y'"
+                        placeholder="开始日期:1980-01-01">
+                </div>
+
+                <div class="col-xs-6 padd-rt-five">
+                    <input class="form-control appDate text-left readonly-while-bg" readonly type="input" data-bind="value:endTime,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="结束日期:1980-01-01">
+                    <!--<td width="20%" data-bind="click:function(data,event){$parent.cellDelete($index,data,event)}">删除</td>-->
+
+                </div>
+
+                <div class="col-xs-6 padd-rt-five">
+                    <input class="form-control" type="text" data-bind="value:major,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="职称">
+                </div>
+
+                <div class="col-xs-6 padd-rt-five">
+                    <input class="form-control" type="text" data-bind="value:reason,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="离职原因">
+                </div>
+            </div>
+            <div class="col-xs-2 cloum-btn" data-bind="click:function(data,event){$parent.cellDelete($index,data,event)}">
+                删除
+            </div>
+        </div>
+        <!--/ko -->
+
+
+
+
+        <div class="next-btn-two">
+            <button type="button" class="btn btn-primary col-xs-6" data-bind="click:routeBack">上一步</button>
+            <button type="button" class="btn btn-primary col-xs-6" data-bind="click:routeMyWork4">下一步</button>
+        </div>
+
+
+
+    </form>
+
+
 </ons-page>

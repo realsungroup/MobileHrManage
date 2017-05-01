@@ -2,6 +2,7 @@
     "app": {
         "leaveitems":[{}],
         "leavedefineresid":533402289043,
+        "personBusLineID":546339659730,
         "ko":null,
         "formaddfn":null,
         "showaddbutton":false,
@@ -14,13 +15,13 @@
         "hostucode":"GHgfPHoXCQm3k3m3DY4DqQ==",
         "hostwebpos":1300,
         "getMethod": "ShowHostTableDatas_Ajax",
-        "uploadFileUrl":"http://finisartest.realsun.me:8081/rispweb/rispservice/SvcUploadFile2.aspx",
-        "httppath":"http://finisartest.realsun.me:8081/rispweb/upfiles",
+        "uploadFileUrl":"http://kingofdinner.realsun.me:8081/rispweb/rispservice/SvcUploadFile2.aspx",
+        "httppath":"http://kingofdinner.realsun.me:8081/rispweb/upfiles",
         "saveMethod":"SaveData_Ajax",
         "GetCmsColumnsMethod":"GetCmsColumns_Ajax",
         "getBysqlMethod":"Ajax_QueryBySql",
         "debug":true,
-        "weixindebug":false,
+        "weixindebug":true,
         "dbs":null,
         "user":"",
         "upass":"",
@@ -54,11 +55,9 @@
    
      
     "mainRouter":[
-                { "route": "", "title":"首页", "moduleId": "main/viewmodels/welcome", "nav": false,"iconCls":"icon icon-home" ,"type":"root"},
                 {"route": "weixinauthaccount", "title":"验证", "moduleId": "main/viewmodels/weixinauthaccount", "nav": false,"iconCls":"icon icon-home" ,"type":"root"},
-                { "route": "mywork*detail","title":"填写信息", "moduleId": "mywork/myworkshell", "nav": true ,"iconCls":"icon icon-edit","type":"root"},
+                { "route": ["","mywork*detail"],"title":"填写信息", "moduleId": "mywork/myworkshell", "nav": true ,"iconCls":"icon icon-edit","type":"root"},
                 { "route": "myread*detail","title":"阅读文件", "moduleId": "myread/myreadshell", "nav": true ,"iconCls":"icon icon-check","type":"root"},
-                { "route": "myes*detail","title":"电子签名", "moduleId": "myes/myesshell", "nav": true ,"iconCls":"icon icon-me","type":"root"},
                 { "route": "mysbus*detail","title":"班车", "moduleId": "mysbus/mysbusshell", "nav": true ,"iconCls":"icon icon-me","type":"root"},
                 { "route": "setting","title":"设置", "moduleId": "main/viewmodels/setting", "nav": false ,"iconCls":"icon icon-settings","type":"root"}],
     "myworkRouter": [
@@ -108,20 +107,20 @@
                 "nav": true ,
                 "iconCls":"icon icon-settings",
                 "type":"myworkpage"
-            }
-        ],           
-    "myreadRouter": [
-            { 
-                "route": ["","myread1"],
-                "title":"同意守则",
-                "resid":"544733093164",
-                "moduleId":"viewmodels/myread1",
+            },
+             { 
+                "route": "myes",
+                "title":"电子签名",
+                "resid":"533143158334",
+                "moduleId":"viewmodels/myes",
                 "nav": true ,
                 "iconCls":"icon icon-settings",
                 "type":"myworkpage"
-            },
+            }
+        ],           
+    "myreadRouter": [
             {
-                "route": "myread2",
+                "route": ["","myread2"],
                 "title":"纪律(员工)手册",
                 "resid":"544733059461",
                 "moduleId": "viewmodels/myread2",
@@ -140,15 +139,7 @@
             }
         ],
     "myesRouter":[
-            { 
-                "route": ["","myes"],
-                "title":"电子签名",
-                "resid":"533143158334",
-                "moduleId":"viewmodels/myes",
-                "nav": true ,
-                "iconCls":"icon icon-settings",
-                "type":"myworkpage"
-            }
+           
         ],
     "mysbusRouter":[
             { 
@@ -157,6 +148,16 @@
                 "sbusid":"540469384880",
                 "subid":"540469400782",
                 "moduleId":"viewmodels/mysbus",
+                "nav": true ,
+                "iconCls":"icon icon-settings",
+                "type":"myworkpage"
+            },
+            { 
+                "route": "busDetail",
+                "title":"班车详情",
+                "sbusid":"540469384880",
+                "subid":"540469400782",
+                "moduleId":"viewmodels/busDetail",
                 "nav": true ,
                 "iconCls":"icon icon-settings",
                 "type":"myworkpage"

@@ -1,0 +1,39 @@
+<ons-page class="mypage">
+
+    <div class="page-padd">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th width="46%">地点</th>
+                    <th width="27%">早班车</th>
+                    <th width="27%">晚班车</th>
+
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:timeList">
+                <tr id="tr0">
+                    <td width="52%" data-bind="text:C3_540473920686">鸿泰苑5期大门</td>
+                    <td width="24%" data-bind="text:C3_540473962470">6:45</td>
+                    <td width="24%" data-bind="text:C3_540474054151">18:45</td>
+
+                </tr>
+
+            </tbody>
+            <!--<tfoot>
+            <tr>
+                            <td width="52%">公司</td>
+                            <td width="24%">7:20</td>
+                            <td width="24%">19:20</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">7:50/19:50返回,返回路线不变</td>
+                        </tr>
+        </tfoot>-->
+        </table>
+        
+    <button type="button" class="btn btn-primary btn-block" data-bind="text:isApply,click:applyClick"></button>
+    </div>
+
+    <!--<div class="row">-->
+    <!--</div>-->
+</ons-page>

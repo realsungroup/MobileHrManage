@@ -9,13 +9,14 @@ define(['durandal/app','knockout','plugins/router','plugins/dialog','jquery','du
            savebutton:false,
            action:'',
            back:function(){router.navigateBack()},
-           saveform:function(dfd){
+           saveform:function(dfd,failCallBack){
             var self=this;
-            appConfig.appfunction.system.maskLoading(" ");
+           
+            
              if (this.action=='edit')
 
              { 
-                
+                appConfig.appfunction.system.maskLoading(" ");
                  this.editservice.saveData(this.formdata()).then(function(e){
                    if (e.error==0)
                    {
@@ -33,13 +34,15 @@ define(['durandal/app','knockout','plugins/router','plugins/dialog','jquery','du
                    {
                        appConfig.appfunction.system.maskHide();
                        dialog.showMessage(e.message,'');
+                       failCallBack();
                    }
               },function(error){
                        appConfig.appfunction.system.maskHide();
                        dialog.showMessage(error,'');
+                       failCallBack();
               }) ;}
-              if (this.action=='add'){
-                   
+              else if (this.action=='add'){
+                  appConfig.appfunction.system.maskLoading(" ");
                   this.editservice.addData(this.formdata()).then(function(e){
                     if (e.error==0)
                     {
@@ -56,18 +59,45 @@ define(['durandal/app','knockout','plugins/router','plugins/dialog','jquery','du
                     {
                         appConfig.appfunction.system.maskHide();
                         dialog.showMessage(e.message,'');
+                         failCallBack();
                     }
                  },function(error){
                         appConfig.appfunction.system.maskHide();
                         dialog.showMessage(error,'');
+                         failCallBack();
                  }) ;
 
+              }
+              else
+              {
+                    dialog.showMessage('浏览状态,无法编辑记录');
               }
             
            },
            cancelform:function(){
                 this.formdata(this.originaldata);
                 
+           },
+           getSubData:function(callback){
+               var self=this;
+               if (this.subresid)
+                     {
+                         if (this.subresid>0)
+                         {
+                             var dfd={};
+                             var promise=this.editservice.getSubData(this.subresid,"","",0,0,dfd);
+                              promise.then(function(data){
+                                  self.subdata(data.data);
+                                  system.log(self.subdata());
+                                  callback();
+                              })
+
+                         }
+                          callback();
+                     }
+                      callback();
+           
+              
            },
            activate:function(resid,recid,json,action,row,subresid)
            {
@@ -77,26 +107,42 @@ define(['durandal/app','knockout','plugins/router','plugins/dialog','jquery','du
             }
              
              this.action=action;
+             var self=this;
              switch (action) {
                  case 'edit':
-                     this.editservice=new editbase(resid,recid);
-                     this.originaldata=$.extend({},JSON.parse(json));
-                    //  this.formdata(JSON.parse(json));
-                       this.formdata(row);
-                     this.savebutton=true;
+                     self.editservice=new editbase(resid,recid);
+                       self.subdata([]);
+                     self.getSubData(function(){
+                       
+                         self.originaldata=$.extend({},JSON.parse(json));
+                  
+                         self.formdata(row);
+                         self.savebutton=true;
+                         self.cancelbutton=true;
+
+                     });
+                     
+                  
                      break;
                   case 'add':
-                      this.editservice=new editbase(resid,0);
-                      this.originaldata=$.extend({},JSON.parse(json));
-                      this.formdata(JSON.parse(json));
-                      this.savebutton=true;
+                      self.editservice=new editbase(resid,0);
+                      self.originaldata=$.extend({},JSON.parse(json));
+                      self.formdata(JSON.parse(json));
+                      self.savebutton=true;
+                      self.cancelbutton=false;
+                      self.subdata([]);
                      break;
                  
                   case 'browse':
-                     this.editservice=new editbase(resid,recid);
-                     this.originaldata=$.extend({},JSON.parse(json));
-                     this.formdata(JSON.parse(json));
-                     this.savebutton=false;
+                      self.editservice=new editbase(resid,recid);
+                        self.subdata([]);
+                      self.getSubData(function(){
+                          
+                            self.originaldata=$.extend({},JSON.parse(json));
+                            self.formdata(JSON.parse(json));
+                            self.savebutton=false;
+                            self.cancelbutton=true;
+                      });
                      break;
                  default:
                      break;
@@ -127,7 +173,7 @@ define(['durandal/app','knockout','plugins/router','plugins/dialog','jquery','du
                                 lang: 'zh',
                                 showNow: true,
                                 steps: { 
-                                            minute: 15,
+                                            minute: 0,
                                             second: 5,
                                             zeroBased: true
                                         },
@@ -135,14 +181,15 @@ define(['durandal/app','knockout','plugins/router','plugins/dialog','jquery','du
                                 startYear: currYear, //开始年份
                                 endYear: currYear + 2, //结束年份
                             };
-                            $(".appDate").mobiscroll($.extend(opt['date'], opt['default']));
-                            $('.appSelect').mobiscroll().select({
-                                            theme: 'ios',      // Specify theme like: theme: 'ios' or omit setting to use default
-                                            lang: 'zh',   // Specify language like: lang: 'pl' or omit setting to use default
-                                            display: 'center',  // Specify display mode like: display: 'bottom' or omit setting to use default
-                                            mode: 'scroller',        // More info about mode: https://docs.mobiscroll.com/3-0-0_beta2/select#!opt-mode
-                                            minWidth: 100                  // More info about minWidth: https://docs.mobiscroll.com/3-0-0_beta2/select#!opt-minWidth
-                                        });
+                            // $(".appDate").mobiscroll($.extend(opt['date'], opt['default']));
+                            // $('.appSelect').mobiscroll().select({
+                            //                 theme: 'ios',      // Specify theme like: theme: 'ios' or omit setting to use default
+                            //                 lang: 'zh',   // Specify language like: lang: 'pl' or omit setting to use default
+                            //                 display: 'center',  // Specify display mode like: display: 'bottom' or omit setting to use default
+                            //                 mode: 'scroller',        // More info about mode: https://docs.mobiscroll.com/3-0-0_beta2/select#!opt-mode
+                            //                 inputClass:'iclass',
+                            //                 minWidth: 100                  // More info about minWidth: https://docs.mobiscroll.com/3-0-0_beta2/select#!opt-minWidth
+                            //             });
                         });
                     }
              

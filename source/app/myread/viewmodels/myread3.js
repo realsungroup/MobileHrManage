@@ -1,5 +1,5 @@
 define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'myworkshell/viewmodels/mywork1'], function (app, ko, router, dialog, mywork1) {
-      var resid = appConfig.app.myreadRouter[2].resid;
+      var resid = appConfig.app.myreadRouter[1].resid;
       var myread1Record = ko.observable({});
       var myreadPerson = ko.observable({});
 

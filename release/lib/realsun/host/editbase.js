@@ -5,7 +5,35 @@ define(['durandal/system'],function(system,require){
     this.dfd={};
      var that=this;
   };
- 
+ function fnSuccess(returnText,dfd){
+    try {
+            
+                dfd.resolve(returnText);
+                return;
+              
+          } catch (error) {
+               
+                dfd.reject(error);
+                
+              return ;
+          }
+       
+  }
+  
+   function fnError(returnText,dfd){
+    try {
+            
+                dfd.resolve(returnText);
+                return;
+              
+          } catch (error) {
+               
+                dfd.reject(error);
+                
+              return ;
+          }
+       
+  }
   function fnsaved(returnText,dfd){
     try {
             
@@ -33,8 +61,30 @@ function fnsyserror(jqXHR, textStatus, errorThrown,dfd){
   editbase.prototype.getData = function(){
   
   };
+  editbase.prototype.editoraddData=function(row,uniqueColumns)
+  {
+
+      var aRecord=new onerecord(0,"editoradd");
+      var records=[];
+      var self=this;
+      row=$.extend(row,aRecord);
+      records.push(row);
+      var json=JSON.stringify(records);
+      
+
+      return system.defer(function(dfd){
+         try {
+             appConfig.app.dbs.dbSavedataWithparm2(self.resid,0,json,"","1","1",uniqueColumns, fnSuccess, fnError, fnsyserror,dfd);
+             
+           
+         } catch (error) {
+            dfd.reject(error);
+           
+         }
+      }).promise();
+  }
   editbase.prototype.addData = function(row){
-     var aRecord=new onerecord(0,"added");
+      var aRecord=new onerecord(0,"added");
       var records=[];
       var self=this;
       row=$.extend(row,aRecord);
@@ -86,6 +136,20 @@ function fnsyserror(jqXHR, textStatus, errorThrown,dfd){
      
    
   };
+  editbase.prototype.getSubData=function(subresid,cmswhere,cmsorder,pageSize,pageIndex,dfd)
+  {
+    var self=this;
+     return system.defer(function(dfd){
+         try {
+             appConfig.app.dbs.GetRelTableByHostRecord(self.resid,subresid,self.recid,cmswhere,cmsorder,pageSize,pageIndex,fnSuccess, fnError, fnsyserror,dfd)
+           
+         } catch (error) {
+            dfd.reject(error);
+           
+         }
+      
+      }).promise();
+  }
   editbase.prototype.modifyDataField = function(hash){
     //do some ajax and return a promise
       var aRecord=new onerecord(this.recid,"modified");
@@ -106,6 +170,7 @@ function fnsyserror(jqXHR, textStatus, errorThrown,dfd){
       
       }).promise();
   };
+   
    editbase.prototype.deletebyrecid = function(){
     //do some ajax and return a promise
       var aRecord=new onerecord(this.recid,"deleted");

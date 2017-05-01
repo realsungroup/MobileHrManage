@@ -1,0 +1,88 @@
+.page-padd{
+    padding-top: 10px;
+    padding-bottom: 65px;
+    /*padding-left: 10px;*/
+    /*padding-right: 10px;*/
+}
+
+.form-group{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.page-mag{
+     margin: 62px 0 65px;
+}
+
+
+
+.readonly-while-bg{
+    background-color: white !important;
+}
+
+.school-nav{
+    height: 60px;
+}
+
+.school-nav button{
+    float: right;
+}
+
+.school-nav button:nth-child(1){
+    margin-right: 10px;
+}
+
+.school-nav p{
+    font-size: 12px;
+}
+
+.padd-rt-five{
+    padding: 5px !important;
+         /*padding-left: 2px; */
+}
+
+.mag-five{
+    margin: 5px !important;
+}
+
+.bg-salmon{
+
+
+}
+
+.clear-padd{
+    /*padding-left: 0 !important;*/
+}
+
+.cloum-btn{
+    height: 100%;
+    line-height: 65px;color: white;font-size: 12px;
+    background-color: salmon;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.cloum-btn-short{
+height: 100%;line-height: 39px;color: white;font-size: 12px;
+background-color: salmon;
+margin-top: 10px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.next-btn-two{
+    display: flex;
+    margin: 0 20px;
+}
+
+.next-btn-two button{
+    flex: 1;
+}
+
+.next-btn-two button:nth-child(1){
+    margin-right: 5px;
+}
+.next-btn-two button:nth-child(2){
+    margin-left: 5px;
+}

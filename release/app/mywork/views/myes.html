@@ -1,0 +1,25 @@
+<ons-page class="mypage">
+	<div id='myes' style="padding-bottom:80px;">
+		<div class="htmleaf-container">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="js-signature" data-width="400" data-height="300" data-border="1px solid black" data-line-color="#bc0000" data-auto-fit="true">签名</div>
+						<p><button id="clearBtn" class="btn btn-default" data-bind='click:clearCanvas'>清除</button>&nbsp;<button id="saveBtn"
+							 class="btn btn-default" data-bind="click:saveSignature" disabled>保存</button></p>
+						<div>
+							<p>你的签名</p>
+							<img alt="" data-bind="attr:{src:record().C3_544732637200}">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="next-btn-two">
+			<button type="button" class="btn btn-primary col-xs-6" data-bind="click:routeBack">上一步</button>
+			<button type="submit" class="btn btn-primary col-xs-6" data-bind="click:submitClick">提交</button>
+		</div>
+
+	</div>
+</ons-page>

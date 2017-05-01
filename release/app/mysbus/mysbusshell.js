@@ -29,7 +29,7 @@ define(['durandal/app','knockout','plugins/router','plugins/dialog',], function 
                     //刷新当前子标题
                     this.subtitle(title);
                 },
-                subtitle:ko.observable(""),
+                subtitle:ko.observable("班车"),
                
                 mysbusRouter: ko.computed(function() {
                         return ko.utils.arrayFilter(childRouter5.navigationModel(), function(route) {

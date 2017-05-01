@@ -1,4 +1,4 @@
-define(['durandal/app','knockout','plugins/router','plugins/dialog',], function (app,ko,router,dialog) {
+define(['durandal/app','knockout','plugins/router','plugins/dialog','mywork/timeControl'], function (app,ko,router,dialog) {
    
   var childRouter = router.createChildRouter()
         .makeRelative({
@@ -6,9 +6,7 @@ define(['durandal/app','knockout','plugins/router','plugins/dialog',], function 
             fromParent:true
         }).map(appConfig.app.myworkRouter).buildNavigationModel();
        appConfig.app.myworkshell=   {
-               activate:function () {
-                         
-                          
+               activate:function () { 
                          
                },
                 router: childRouter,  
