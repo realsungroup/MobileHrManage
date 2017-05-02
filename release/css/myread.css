@@ -46,3 +46,18 @@ label.myread-switch span:nth-child(2){
 .mysearchErrorOff{
     background-image: url(../img/yichang-1.png);
 }
+
+.back-Top{
+    /*box-sizing: border-box;*/
+    display: block;
+    position: fixed;
+    z-index: 99999;
+    bottom: 80px;
+    right: 10px;
+    /*width: 40px;
+    height: 40px;*/
+    padding: 10px;
+    background-color: lightgray;
+    color: black;
+    border-radius: 4px;
+}

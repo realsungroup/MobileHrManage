@@ -66,40 +66,46 @@
 
         <div class="checkbox mag-five">
             <label>
-            <input id="sureBox" type="checkbox" data-bind="checked:haveRelative,disable:record().C3_471002935941 == 'Y'">是否有亲属朋友在本公司任职
-                <label>
+                <input id="sureBox" type="checkbox" data-bind="checked:haveRelative,disable:record().C3_471002935941 == 'Y'">是否有亲属朋友在本公司任职
+            </label>
         </div>
 
-                               
-                                <div class="form-group"  data-bind="visible:haveRelative">
-                                     <div class="col-xs-6 padd-rt-five" >
-                                                <input class="form-control" type="text" data-bind="value:record().C3_464276899657,disable:record().C3_471002935941 == 'Y'" placeholder="姓名">
-                                             </div>
-            <div class="col-xs-6 padd-rt-five">
-                                                <input class="form-control" type="text" data-bind="value:record().C3_464276983864,disable:record().C3_471002935941 == 'Y'" placeholder="与本人关系">
-                                            </div>
-            <div class="col-xs-6 padd-rt-five">
-                                                <input class="form-control" type="text" data-bind="value:record().C3_464277008583,disable:record().C3_471002935941 == 'Y'" placeholder="联系方式">
-                                            </div>
-           
-                                </div>
-  <div class="form-group"  data-bind="visible:haveRelative">
-                                 <div class="col-xs-6 padd-rt-five">
-                                                <input class="form-control" type="text" data-bind="value:record().C3_464277095370,disable:record().C3_471002935941 == 'Y'" placeholder="姓名">
-                                        </div>
-            <div class="col-xs-6 padd-rt-five">
-                                                <input class="form-control" type="text" data-bind="value:record().C3_464277151777,disable:record().C3_471002935941 == 'Y'" placeholder="与本人关系">
-                                            </div>
-            <div class="col-xs-6 padd-rt-five">
-                                                <input class="form-control" type="text" data-bind="value:record().C3_464277179556,disable:record().C3_471002935941 == 'Y'" placeholder="联系方式">
-                                  
-            </div>
-             </div>
 
-                                  <div class="next-btn-two">
-                                       <button type="button" class="btn btn-primary col-xs-6" data-bind="click:routeBack">上一步</button>
-                        <button type="button" class="btn btn-primary col-xs-6" data-bind="click:routeMyWork5">下一步</button>
-    </div>
+        <div class="form-group" data-bind="visible:haveRelative">
+            <div class="col-xs-6 padd-rt-five">
+                <input class="form-control" type="text" data-bind="value:record().C3_464276899657,disable:record().C3_471002935941 == 'Y'"
+                    placeholder="姓名">
+            </div>
+            <div class="col-xs-6 padd-rt-five">
+                <input class="form-control" type="text" data-bind="value:record().C3_464276983864,disable:record().C3_471002935941 == 'Y'"
+                    placeholder="与本人关系">
+            </div>
+            <div class="col-xs-6 padd-rt-five">
+                <input class="form-control" type="text" data-bind="value:record().C3_464277008583,disable:record().C3_471002935941 == 'Y'"
+                    placeholder="联系方式">
+            </div>
+
+        </div>
+        <div class="form-group" data-bind="visible:haveRelative">
+            <div class="col-xs-6 padd-rt-five">
+                <input class="form-control" type="text" data-bind="value:record().C3_464277095370,disable:record().C3_471002935941 == 'Y'"
+                    placeholder="姓名">
+            </div>
+            <div class="col-xs-6 padd-rt-five">
+                <input class="form-control" type="text" data-bind="value:record().C3_464277151777,disable:record().C3_471002935941 == 'Y'"
+                    placeholder="与本人关系">
+            </div>
+            <div class="col-xs-6 padd-rt-five">
+                <input class="form-control" type="text" data-bind="value:record().C3_464277179556,disable:record().C3_471002935941 == 'Y'"
+                    placeholder="联系方式">
+
+            </div>
+        </div>
+
+        <div class="next-btn-two">
+            <button type="button" class="btn btn-primary col-xs-6" data-bind="click:routeBack">上一步</button>
+            <button type="button" class="btn btn-primary col-xs-6" data-bind="click:routeMyWork5">下一步</button>
+        </div>
 
 
 

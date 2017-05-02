@@ -75,7 +75,7 @@ function fnsyserror(jqXHR, textStatus, errorThrown,dfd){
 
       return system.defer(function(dfd){
          try {
-             appConfig.app.dbs.dbSavedataWithparm2(self.resid,0,json,"0","1","1",uniqueColumns, fnSuccess, fnError, fnsyserror,dfd);
+             appConfig.app.dbs.dbSavedataWithparm2(self.resid,0,json,"","1","1",uniqueColumns, fnSuccess, fnError, fnsyserror,dfd);
              
            
          } catch (error) {

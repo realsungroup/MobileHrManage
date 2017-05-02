@@ -59,6 +59,7 @@
                 { "route": ["","mywork*detail"],"title":"填写信息", "moduleId": "mywork/myworkshell", "nav": true ,"iconCls":"icon icon-edit","type":"root"},
                 { "route": "myread*detail","title":"阅读文件", "moduleId": "myread/myreadshell", "nav": true ,"iconCls":"icon icon-check","type":"root"},
                 { "route": "mysbus*detail","title":"班车", "moduleId": "mysbus/mysbusshell", "nav": true ,"iconCls":"icon icon-me","type":"root"},
+                { "route": "mycard*detail","title":"银行卡", "moduleId": "mycard/mycardshell", "nav": true ,"iconCls":"icon icon-card","type":"root"},
                 { "route": "setting","title":"设置", "moduleId": "main/viewmodels/setting", "nav": false ,"iconCls":"icon icon-settings","type":"root"}],
     "myworkRouter": [
             {
@@ -138,8 +139,16 @@
                 "type":"myworkpage"
             }
         ],
-    "myesRouter":[
-           
+    "myCardRouter":[
+            { 
+                "route": ["","myCard"],
+                "title":"银行卡",
+                "resid":"547032209665",
+                "moduleId":"viewmodels/myCard",
+                "nav": true ,
+                "iconCls":"icon icon-settings",
+                "type":"mycardpage"
+            }
         ],
     "mysbusRouter":[
             { 

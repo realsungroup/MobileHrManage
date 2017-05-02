@@ -188,26 +188,15 @@ define(['durandal/system',
                     tempSchoolM.major('');
                     tempSchoolM.edu('');
 
-                    //   record()[schoolNameArr[tempSchoolM.index]] = '';
-                    // record()[startTimeArr[tempSchoolM.index]] = '';
-                    // record()[endTimeArr[tempSchoolM.index]] = '';
-                    // record()[majorArr[tempSchoolM.index]] = '';
-                    // record()[eduArr[tempSchoolM.index]] = '';
-
                     schoolModelArr(schoolModelArr());
                 } else if (str == 'cer') {
                     var tempSchoolM = cerModelArr()[index()];
                     emptyCerModelArr.push(tempSchoolM);
                     cerModelArr().splice(index(), 1);
-                    // tempSchoolM.cer('');
-                    // tempSchoolM.lv('');
-                    // tempSchoolM.organ('');
-                    // tempSchoolM.data('');
-
-                    // record()[certificateArr[tempSchoolM.index]] = '';
-                    // record()[lvArr[tempSchoolM.index]] = '';
-                    // record()[organArr[tempSchoolM.index]] = '';
-                    // record()[dataArr[tempSchoolM.index]] = '';
+                    tempSchoolM.cer('');
+                    tempSchoolM.lv('');
+                    tempSchoolM.organ('');
+                    tempSchoolM.data('');
 
                     cerModelArr(cerModelArr());
                 }

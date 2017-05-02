@@ -126,15 +126,10 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'myworks
                 emptySchoolModelArr.push(tempSchoolM);
                 schoolModelArr().splice(index(), 1);
 
-            //    tempSchoolM.schoolName('');
-            //     tempSchoolM.startTime('');
-            //     tempSchoolM.endTime('');
-            //     tempSchoolM.major('');
-
-               record()[schoolNameArr[tempSchoolM.index]] = '';
-                    record()[startTimeArr[tempSchoolM.index]] = '';
-                    record()[endTimeArr[tempSchoolM.index]] = '';
-                    record()[majorArr[tempSchoolM.index]] = '';
+               tempSchoolM.schoolName('');
+                tempSchoolM.startTime('');
+                tempSchoolM.endTime('');
+                tempSchoolM.major('');
 
                 schoolModelArr(schoolModelArr());
             },

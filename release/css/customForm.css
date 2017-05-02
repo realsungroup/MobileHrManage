@@ -86,3 +86,7 @@ margin-top: 10px;
 .next-btn-two button:nth-child(2){
     margin-left: 5px;
 }
+
+.sec-checkbox{
+    margin-left:15px !important;
+}

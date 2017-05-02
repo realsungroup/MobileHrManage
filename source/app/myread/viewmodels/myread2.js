@@ -33,6 +33,9 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'myworks
                   self.myreadBool('Y');
                   mywork1.record()['C3_544732585319'] = self.myreadBool();
                   mywork1.submitClick();
+            },
+            backTop: function(){
+              $('.page__content').scrollTop(0);
             }
       };
 }); 
