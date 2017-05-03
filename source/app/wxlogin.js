@@ -1,4 +1,4 @@
-define(['durandal/system', 'knockout','durandal/app', 'durandal/viewLocator', 'bootstrap','plugins/router','plugins/dialog','realsun/common'],  function (system,ko, app, viewLocator,bootstrap,router,dialog) {
+define(['durandal/system', 'knockout','durandal/app', 'durandal/viewLocator', 'bootstrap','plugins/router','plugins/dialog','editbase','realsun/common'],  function (system,ko, app, viewLocator,bootstrap,router,dialog,editbase) {
 var lastResult={"error":0,"message":""};
  
  
@@ -12,7 +12,23 @@ var lastResult={"error":0,"message":""};
                               
                                var dbs=new dbHelper(baseUrl,appConfig.app.userConfig.LoginID,appConfig.app.userConfig.PassEncrypted);
                                  appConfig.appfunction.system.setAppDbs(dbs);
-                                 callback(true);
+                                  //登记 微信登入到后台 
+                                 var openid=appConfig.appfunction.system.getWeixinOpenid();
+                                 var unionid=appConfig.appfunction.system.getWeixinUnionId();
+                                 var resid=547134975427;
+                                 var  wxlogin = new Object();
+                                 wxlogin.C3_547135102710 = openid;
+                                 wxlogin.C3_547135161630 =unionid;
+                                 if (appConfig.app.appname){wxlogin.C3_547135180743=appConfig.app.appname;};
+                                   
+                                  var tempEditbase = new editbase(resid, 0);
+                                  tempEditbase.addData(wxlogin).then(function (e) { 
+                                        if (e.error == 0) {callback(true);}else{dialog.showMessage(e.message, '');};
+                                        
+                                    }, 
+                                        function (error) {dialog.showMessage(error, '');
+                                    });
+                                
                           },
                         function(error){
                                     

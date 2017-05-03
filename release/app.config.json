@@ -1,5 +1,6 @@
 {
     "app": {
+        "appname":"MobileHrManage",
         "leaveitems":[{}],
         "leavedefineresid":533402289043,
         "personBusLineID":546339659730,
