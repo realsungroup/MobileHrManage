@@ -1,13 +1,12 @@
+<ons-page class="mypage">
 
-<ons-page class="mypage" >
-<div id='myreadContent'  data-bind='html:myread1Record().C3_544732822790'>myread1</div>
-
-<div  data-bind='html:myread1Record().C3_544732822790'>myread1</div>
-
-<label class="myread-switch">
+    <label class="myread-switch">
     <span data-bind="click:read,css:{mysearchErrorOff:myreadBool() != 'Y',mysearchErrorOn:myreadBool() == 'Y'}"></span>
     <span data-bind="text:myreadBool() == 'Y' ? '已阅读':'未阅读'"></span>
 </label>
+
+
+    <div id='myreadContent' data-bind='html:myread1Record().C3_544732822790'>myread1</div>
 
 
 </ons-page>

@@ -12,15 +12,17 @@
 
 
 label.myread-switch{
-    position: absolute;
+    /*position: absolute;
     margin-bottom: 60px;
-  padding-bottom: 100px;
+  padding-bottom: 100px;*/
     right: 10px;
-    width: 100px;
+    width: 105px;
     height: 24px;
     display: flex;
     display: -webkit-flex;
     justify-content: space-between;
+
+        margin: 5px 0 10px 5px;
 }
 
 label.myread-switch span:nth-child(1){

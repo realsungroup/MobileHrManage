@@ -3,7 +3,7 @@
 
 <div  data-bind="foreach:oList" style="padding-bottom:50px;bacground-color:red">
     <div class="bus-cell" data-bind="click:function(){$parent.goToBusDetail($index)}">
-        <p class="lead" data-bind="text:C3_540472920385"></p>
+        <p class="lead" data-bind="text:C3_540472920385 +' ' +C3_546699312735"></p>
         <p class="text-muted" data-bind="text:C3_546339376895"></p>
         <!--<span data-bind="text:applied"></span>-->
         <span data-bind="text:$parent.currentPersonBusLine().C3_546339679211 == C3_540472920385 ? '已申请' : ''"></span>

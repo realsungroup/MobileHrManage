@@ -1,20 +1,24 @@
 define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery', 'signature', 'myworkshell/viewmodels/mywork1', 'editbase'],
       function (app, ko, router, dialog, jquery, signature, mywork1, editbase) {
+            var globThis;
             var isAdd = ko.observable(false);
             var btnTitle = ko.observable('添加');
-            var record = ko.observable({
+            var cardRecord = ko.observable({
+                  'C3_547144148292':'',//账号姓名
+                  'C3_547144218383':'',//开户行信息
                   'C3_547032175037': '',//银行卡号
                   'C3_547032183338': ''//银行卡照片地址
             });
             var cardResid = appConfig.app.myCardRouter[0].resid;
             return {
                   activate: function () {
+                        globThis = this;
                         var cmswhere = '';
                         appConfig.app.dbs.dbGetdata(cardResid, 0, "", cmswhere, fnSuccess, fnError, fnSyserror);
                         function fnSuccess(data) {
 
                               //  data[0].C3_547032183338 = 'http://finisartest.realsun.me//WxImages/20170502135453518.png';
-                              record(data[0]);
+                              if(data['length']) cardRecord(data[0]);
                               isAdd(true);
                               btnTitle('申请');
                         }
@@ -30,14 +34,14 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
                   },
                   btnTitle: btnTitle,
                   isAdd: isAdd,
-                  record: record,
+                  cardRecord: cardRecord,
                   addClick: function () {
                         isAdd(true);
                         btnTitle('申请');
                   },
                   submitClick: function () {
                         var tempEditBase = new editbase(cardResid, 0);
-                        tempEditBase.editoraddData(record(), 'C3_547032175037').then(function (e) {
+                        tempEditBase.editoraddData(cardRecord(), 'C3_547032175037').then(function (e) {
                               if (e.error == 0) {
                                     alert("提交成功");
                               } else {
@@ -60,8 +64,8 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
                                           callback = function (data) {
                                                 var imageurl = data.Data;
                                                 alert('上传成功');
-                                                record().C3_547032183338 = imageurl;
-                                                record(record());
+                                                cardRecord().C3_547032183338 = imageurl;
+                                                cardRecord(cardRecord());
                                           });
                               }
                         });
