@@ -107,6 +107,7 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
 
             },
             valiateForm: function (containArr) {
+                if(record().C3_471002935941 == 'Y') return [];
                 var propertyArr = containArr[0];
                 var propertyStrArr = containArr[1];
                 if(propertyArr.length != propertyStrArr.length) return;

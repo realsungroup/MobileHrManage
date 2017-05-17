@@ -132,8 +132,8 @@
             },
             {
                 "route": "myread3",
-                "title":"入职指导",
-                "resid":"544733015541",
+                "title":"保险手册",
+                "resid":"548337268469",
                 "moduleId": "viewmodels/myread3",
                 "nav": true ,
                 "iconCls":"icon icon-settings",

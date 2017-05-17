@@ -25,6 +25,10 @@ label.myread-switch{
         margin: 5px 0 10px 5px;
 }
 
+.marg-bottom{
+    margin-bottom: 2.5rem;
+}
+
 label.myread-switch span:nth-child(1){
     /*width: 45px;*/
     height: inherit;
