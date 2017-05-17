@@ -112,10 +112,14 @@ var lastResult={"error":0,"message":""};
                                    // aunionid=aopenid;
                                     if  (aopenid==""||aopenid==null||aunionid==""||aunionid==null){
                                         if (appConfig.app.localdebug){
-                                            router.navigate(appConfig.app.weixinOAuthUrl2);
+                                             if(getQueryString('action') == 'notificationShell')  router.navigate(appConfig.app.weixinOAuthUrl2+"?action=notificationShell");
+                                             else router.navigate(appConfig.app.weixinOAuthUrl2);
                                         }
                                         else
-                                        {router.navigate(appConfig.app.weixinOAuthUrl);}
+                                        {
+                                             if(getQueryString('action') == 'notificationShell') router.navigate(appConfig.app.weixinOAuthUrl+"?action=notificationShell");
+                                             else router.navigate(appConfig.app.weixinOAuthUrl);
+                                        }
                                         
                                         return true;
                                     }

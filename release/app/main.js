@@ -54,7 +54,8 @@ define(['durandal/system', 'knockout','durandal/app', 'durandal/viewLocator', 'b
                    wxlogin.startWxApp(function(lastResult){ 
                        if (lastResult.error==0)
                        {
-                               app.setRoot('shell');
+                           if(getQueryString('action') == 'notificationShell')  app.setRoot('notification/notificationShell');
+                           else    app.setRoot('shell');
                        }else if(lastResult.error==-2){
                             dialog.showMessage(lastResult.message,'错误');
                        }else{

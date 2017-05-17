@@ -56,7 +56,7 @@ label.myread-switch span:nth-child(2){
 .back-Top{
     /*box-sizing: border-box;*/
     display: block;
-    position: fixed;
+    position: absolute;
     z-index: 99999;
     bottom: 80px;
     right: 10px;
@@ -66,4 +66,8 @@ label.myread-switch span:nth-child(2){
     background-color: lightgray;
     color: black;
     border-radius: 4px;
+}
+
+.back-Top-bottom{
+     bottom: 20px !important;
 }

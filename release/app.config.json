@@ -22,7 +22,7 @@
         "GetCmsColumnsMethod":"GetCmsColumns_Ajax",
         "getBysqlMethod":"Ajax_QueryBySql",
         "debug":true,
-        "weixindebug":true,
+        "weixindebug":false,
         "dbs":null,
         "user":"",
         "upass":"",
@@ -172,6 +172,10 @@
                 "iconCls":"icon icon-settings",
                 "type":"myworkpage"
             }
+        ],
+        "notificationRouter":[
+            { "route": ["","notificationMain"],"resid":"548337681209","title":"政策公告", "moduleId": "notification/viewmodels/notificationMain", "nav": true ,"type":"root"},
+            { "route": "notificationDetail","title":"公告详情", "moduleId": "notification/viewmodels/notificationDetail", "nav": false ,"type":"root"}
         ]
     },
     "appfunction":null

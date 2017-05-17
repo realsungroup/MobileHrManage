@@ -1,0 +1,10 @@
+<ons-page class="mypage">
+    <div  data-bind="foreach:notificationInfoArray">
+    <div class="bus-cell" data-bind="click:function(){$parent.notificationDetailClick($index)}">
+        <p class="lead" data-bind="text:C3_548337699631"></p>
+        <p class="text-muted" data-bind="text:'更新日期：'+C3_548337775429"></p>
+            <i></i>
+            <div class="line"></div>
+    </div>
+</div>
+</ons-page>
