@@ -33,7 +33,7 @@ define(['durandal/system', 'knockout','durandal/app', 'durandal/viewLocator', 'b
 //define(['durandal/system', 'knockout','durandal/app', 'durandal/viewLocator', 'bootstrap','plugins/router','plugins/dialog','realsun/common'],  function (system,ko, app, viewLocator,bootstrap,router,dialog) {
 //
   
-     app.title = '员工入职';
+    app.title = '正在进入';
     app.configurePlugins({
         router:true,
         dialog: true
@@ -54,8 +54,14 @@ define(['durandal/system', 'knockout','durandal/app', 'durandal/viewLocator', 'b
                    wxlogin.startWxApp(function(lastResult){ 
                        if (lastResult.error==0)
                        {
-                           if(getQueryString('action') == 'notificationShell')  app.setRoot('notification/notificationShell');
-                           else    app.setRoot('shell');
+                           if(getQueryString('action') == 'notificationShell') {
+                                app.setRoot('notification/notificationShell');
+                                app.title = '政策公告';
+                           }else{
+                                app.title = '员工入职';
+                                   app.setRoot('shell');
+                             }
+
                        }else if(lastResult.error==-2){
                             dialog.showMessage(lastResult.message,'错误');
                        }else{

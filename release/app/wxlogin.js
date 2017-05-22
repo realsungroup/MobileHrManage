@@ -63,15 +63,19 @@ var lastResult={"error":0,"message":""};
                         appConfig.appfunction.system.TryinitWeiCat(appConfig.app.getWxconfigUrl);
                         
                     }
-                    isHave(function(isHave){
-                        if(isHave) {//服务端有候选人记录
-                               callbackMain(lastResult);
-                        }else{//没有记录
-                               lastResult.error=-2;
-                                           lastResult.message='没有这条数据，请在服务端添加后重新进入！';
-                                           callbackMain(lastResult);
-                        }
-                    });
+                     if(getQueryString('action') == 'notificationShell'){
+                         callbackMain(lastResult);
+                     }else{
+                        isHave(function(isHave){
+                            if(isHave) {//服务端有候选人记录
+                                callbackMain(lastResult);
+                            }else{//没有记录
+                                lastResult.error=-2;
+                                            lastResult.message='没有这条数据，请在服务端添加后重新进入！';
+                                            callbackMain(lastResult);
+                            }
+                        });
+                     }
                   } 
                   else{
                         callbackMain(lastResult);
