@@ -64,7 +64,9 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
             },
             
             submitClick: function () {
-                  if(mywork1.record().C3_544732637200 == undefined && mywork1.record.C3_544732637200 == ''){
+                  if(mywork1.record().C3_544732637200 == undefined ||
+                   mywork1.record().C3_544732637200 == '' ||
+                   mywork1.record().C3_544732637200 == null){
                         dialog.showMessage("请重新上传签名");
                         return;
                   }

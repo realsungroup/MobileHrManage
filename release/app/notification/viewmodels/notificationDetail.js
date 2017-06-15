@@ -8,7 +8,7 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
 
                 self.detailInfo = ko.observable({});
                 var detailID = notificationScope.notificationDetailModel.C3_548337789616;
-                notificationService.getNotificationDetailData(detailID,(data) => {
+                notificationService.getNotificationDetailData(detailID,function(data){
                     self.detailInfo(data[0]);
                 })
             },

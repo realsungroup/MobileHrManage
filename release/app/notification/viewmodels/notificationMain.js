@@ -8,7 +8,7 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
             },
             attached: function () {
                 self = this;
-                notificationService.getNotificationMainData((data) => {
+                notificationService.getNotificationMainData(function(data){
                     self.notificationInfoArray(data);
                 });
             },
