@@ -89,6 +89,10 @@ define(['durandal/system',
                 appConfig.app.myworkshell.router.navigate("#mywork/mywork4");
             },
             cellDelete: function (index, data, event) {//删除
+                if( mywork1.record().C3_471002935941 == "Y"){
+                        dialog.showMessage("已提交数据不能删除");
+                        return;
+                  }
                 var tempSchoolM = schoolModelArr()[index()];
                 emptySchoolModelArr.push(tempSchoolM);
                 schoolModelArr().splice(index(), 1);

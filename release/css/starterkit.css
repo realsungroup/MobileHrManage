@@ -593,3 +593,11 @@ select{
     right: 5px;
     height: 1px;
 }
+
+.WordSection1 *{
+color:black !important;
+}
+
+*{
+  text-decoration:none !important;
+}
