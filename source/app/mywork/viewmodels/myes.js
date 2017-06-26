@@ -22,6 +22,11 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
             },
 
             saveSignature: function () {//上传签名图片
+                   if( mywork1.record().C3_471002935941 == "Y"){
+                        dialog.showMessage("签名不能重复提交");
+                        return;
+                  }
+
                   $('#signature').empty();
                   var dataUrl = $('.js-signature').jqSignature('getDataURL');//获取dataurl
                   function dataURLtoBlob(dataurl) {//转换成blob对象

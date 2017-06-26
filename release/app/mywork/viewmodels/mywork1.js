@@ -1,5 +1,5 @@
-define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery', 'editbase', 'durandal/system', 'editform', 'durandal/binder', 'durandal/viewEngine','mobiscroll'],
-    function (app, ko, router, dialog, jquery, editbase, system, editform, binder, viewEngine,mobiscroll) {
+define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery', 'editbase', 'durandal/system', 'editform', 'durandal/binder', 'durandal/viewEngine', 'mobiscroll'],
+    function (app, ko, router, dialog, jquery, editbase, system, editform, binder, viewEngine, mobiscroll) {
         var record = ko.observable({});
         var resid = appConfig.app.myworkRouter[0].resid;
         resid = "543089753581";
@@ -8,13 +8,13 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
             activate: function () {
                 this.getData(function () { });
 
-                  var timeC = timeControl.createTimeControl();
-                 timeC.record = this.record();
-                 timeC.initTimeControl();
+                var timeC = timeControl.createTimeControl();
+                timeC.record = this.record();
+                timeC.initTimeControl();
             },
             record: record,
             attached: function () {
-                
+
             },
 
             getData: function (callback) {
@@ -35,13 +35,12 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
                     if (me.record().C3_464172127930 == null || me.record().C3_464172127930 == undefined) {
                         appConfig.app.dbs.dbGetdata(resid, 0, "", cmswhere, fnSuccess, fnError, fnSyserror);
                         function fnSuccess(data, subdata, total) {
-
-                            // data[0].C3_471002935941 = 'N';
+                            // if(appConfig.app.weixindebug) data[0].C3_471002935941 = 'N';
                             me.record(data[0]);
 
-                             var timeC = timeControl.createTimeControl();
-                 timeC.record = me.record();
-                 timeC.initTimeControl();
+                            var timeC = timeControl.createTimeControl();
+                            timeC.record = me.record();
+                            timeC.initTimeControl();
 
                             appConfig.app.myreadRouter[0].title = record().C3_546344790488;
                             appConfig.app.myreadRouter[0].resid = record().C3_546344916192;
@@ -57,10 +56,9 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
                 }
             },
             routeMyWork2: function () {
-                
+
                 var propertyArr = [
                     "C3_464172127930",
-                    "C3_464172148589",
                     "C3_464172157606",
                     "C3_464172188709",
                     "C3_464172212871",
@@ -70,16 +68,15 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
                     "C3_464172350271",
                     "C3_464172402553",
                     "C3_546621946191",
-                    "C3_464172522558",
                     "C3_464172654284",
                     "C3_464172707004",
                     "C3_464172722124",
                     "C3_464172819253",
-                    "C3_464172852423",];
+                    "C3_464172852423",
+                    "C3_551803275504"];
 
                 var propertyStrArr = [
                     "姓名",
-                    "英文名",
                     "性别",
                     "国籍",
                     "籍贯",
@@ -89,33 +86,33 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
                     "文书送达地址",
                     "现居住地址",
                     "手机号码",
-                    "公司邮箱",
                     "学历",
                     "政治面貌",
                     "户籍类别",
                     "婚姻状况",
-                    "生育状况"
+                    "生育状况",
+                    "微信号"
                 ];
-                var containArr = [propertyArr,propertyStrArr];
+                var containArr = [propertyArr, propertyStrArr];
                 var self = this;
                 var emptyArr = self.valiateForm(containArr);
-                if(emptyArr.length == 0){
+                if (emptyArr.length == 0) {
                     appConfig.app.myworkshell.router.navigate("#mywork/mywork2");
-                }else{
-                    dialog.showMessage(emptyArr+"不能为空");
+                } else {
+                    dialog.showMessage(emptyArr + "不能为空");
                 }
 
             },
             valiateForm: function (containArr) {
-                if(record().C3_471002935941 == 'Y') return [];
+                if (record().C3_471002935941 == 'Y') return [];
                 var propertyArr = containArr[0];
                 var propertyStrArr = containArr[1];
-                if(propertyArr.length != propertyStrArr.length) return;
+                if (propertyArr.length != propertyStrArr.length) return;
 
                 var emptyArr = [];
-                for(var i = 0 ; i < propertyArr.length; i ++){
+                for (var i = 0; i < propertyArr.length; i++) {
                     var tempProp = record()[propertyArr[i]];
-                    if(tempProp == undefined || tempProp == '') emptyArr.push(propertyStrArr[i]);
+                    if (tempProp == undefined || tempProp == '') emptyArr.push(propertyStrArr[i]);
                 }
                 return emptyArr;
             }

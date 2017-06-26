@@ -22,7 +22,7 @@
         "GetCmsColumnsMethod":"GetCmsColumns_Ajax",
         "getBysqlMethod":"Ajax_QueryBySql",
         "debug":true,
-        "weixindebug":false,
+        "weixindebug":true,
         "dbs":null,
         "user":"",
         "upass":"",

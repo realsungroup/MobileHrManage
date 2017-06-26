@@ -1,23 +1,24 @@
 <ons-page class="mypage">
-        <div class="school-nav padd-rt-five">
-            学历/学位/证书:
-            <button id="btn1" type="button" class="btn btn-primary" data-bind="click:function(){changeview('btn1')},disable:record().C3_471002935941 == 'Y'">添加证书</button>
-            <button id="btn2" type="button" class="btn btn-primary" data-bind="click:function(){changeview('btn2')},disable:record().C3_471002935941 == 'Y'">添加学校</button>
-            </br>
-            <p class="text-muted">(请填写高中以上的交易经历,由最高学历开始填写)</p>
-        </div>
+    <div class="school-nav padd-rt-five">
+        学历/学位/证书:
+        <button id="btn1" type="button" class="btn btn-primary" data-bind="click:function(){changeview('btn1')},disable:record().C3_471002935941 == 'Y'">添加证书</button>
+        <button id="btn2" type="button" class="btn btn-primary" data-bind="click:function(){changeview('btn2')},disable:record().C3_471002935941 == 'Y'">添加学校</button>
+        </br>
+        <p hidden class="text-muted">(请填写高中以上的交易经历,由最高学历开始填写)</p>
+    </div>
 
     <form class="form-horizontal page-padd">
 
         <!-- ko foreach: schoolModelArr -->
         <div class="form-group">
-            <div class="col-xs-10 padd-rt-five">
+            <div class="padd-rt-five" data-bind="css:{ 'col-xs-12' :$root.record().C3_471002935941 == 'Y' , 'col-xs-10':$root.record().C3_471002935941 != 'Y'}">
                 <div class="col-xs-6 padd-rt-five">
                     <input class="form-control" type="text" placeholder="学校名称" data-bind="value:schoolName,disable:$parent.record().C3_471002935941 == 'Y'">
                 </div>
 
                 <div class="col-xs-6 padd-rt-five">
-                    <input class="form-control appDate text-left readonly-while-bg" readonly type="input" data-bind="value:startTime,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="开始日期:1980-01-01">
+                    <input class="form-control appDate text-left readonly-while-bg" readonly type="input" data-bind="value:startTime,disable:$parent.record().C3_471002935941 == 'Y'"
+                        placeholder="开始日期:1980-01-01">
                 </div>
 
 
@@ -34,18 +35,19 @@
 
                 <div class="col-xs-6 padd-rt-five">
                     <select class="form-control" data-bind="value:edu,disable:$parent.record().C3_471002935941 == 'Y'">
-                                        <option value="高中">高中</option>
-                                        <option value="大专">大专</option>
-                                        <option value="本科">本科</option>
-                                        <option value="硕士">硕士</option>
-                                        <option value="博士">博士</option>
+                             <option value="初中">初中</option>
+                            <option value="高中">高中</option>
+                             <option value="中专">中专</option>
+                            <option value="大专">大专</option>
+                            <option value="本科">本科</option>
+                            <option value="硕士">硕士</option>
+                            <option value="博士">博士</option>
                                     </select>
                 </div>
 
             </div>
-            <div class="col-xs-2 bg-salmon clear-padd cloum-btn" data-bind="click:function(data,event){$parent.cellDelete('school',$index,data,event)},visible:$index() != 0">
-               删<br>
-               除
+            <div class="col-xs-2 bg-salmon clear-padd cloum-btn" data-bind="click:function(data,event){$parent.cellDelete('school',$index,data,event)},visible:(($index() != 0) && ($root.record().C3_471002935941 != 'Y'))">
+                删<br> 除
             </div>
         </div>
 
@@ -53,15 +55,18 @@
 
         <!-- ko foreach: cerModelArr -->
         <div class="form-group">
-            <div class="col-xs-10 padd-rt-five">
+            <div class=" padd-rt-five" data-bind="css:{ 'col-xs-12' :$root.record().C3_471002935941 == 'Y' , 'col-xs-10':$root.record().C3_471002935941 != 'Y'}">
                 <div class="col-xs-6 padd-rt-five">
                     <input class="form-control col-xs-6" type="text" data-bind="value:cer,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="职业资格证书">
                 </div>
 
                 <div class="col-xs-6 padd-rt-five">
                     <select class="form-control" data-bind="value:lv,disable:$parent.record().C3_471002935941 == 'Y'">
-                                        <option value="TEM-8">TEM-8</option>
+                                        <option value="无">无</option>
                                         <option value="CET-4">CET-4</option>
+                                        <option value="CET-6">CET-6</option>
+                                        <option value="TEM-4">TEM-4</option>
+                                        <option value="TEM-8">TEM-8</option>
                                     </select>
                 </div>
 
@@ -71,10 +76,11 @@
                 </div>
 
                 <div class="col-xs-6 padd-rt-five">
-                    <input class="form-control col-xs-6 appDate text-left readonly-while-bg" readonly type="input" data-bind="value:data,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="获得日期">
+                    <input class="form-control col-xs-6 appDate text-left readonly-while-bg" readonly type="input" data-bind="value:data,disable:$parent.record().C3_471002935941 == 'Y'"
+                        placeholder="获得日期">
                 </div>
             </div>
-            <div class="col-xs-2 bg-salmon cloum-btn-short" data-bind="click:function(data,event){$parent.cellDelete('cer',$index,data,event)},visible:$index() != 0">
+            <div class="col-xs-2 bg-salmon cloum-btn-short" data-bind="click:function(data,event){$parent.cellDelete('cer',$index,data,event)},visible:(($index() != 0) && ($root.record().C3_471002935941 != 'Y'))">
                 删<br>除
             </div>
         </div>

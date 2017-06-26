@@ -9,8 +9,7 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'myworks
                 var self = this;
                 self.record(a);
 
-                record().C3_546462266120 = 'Y';
-                if (record().C3_546462266120 == 'Y') {
+                if (record().C3_551806597769 == 'Y') {
                     haveSin(true);
                 } else {
                     haveSin(false);
@@ -24,10 +23,12 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'myworks
 
                 function setSin() {
                     if (haveSin()) {
-                        record().C3_546462266120 = 'Y';
+                        record().C3_551806597769 = 'Y';
                     } else {
-                        record().C3_546462266120 = 'N';
+                        record().C3_551806597769 = 'N';
                     }
+
+                    console.log("fanzui----------->"  + record().C3_551806597769);
                 }
 
                 ko.computed(function () {
