@@ -36,7 +36,7 @@
                     <input class="form-control" type="text" data-bind="value:reason,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="离职原因">
                 </div>
             </div>
-            <div class="col-xs-2 cloum-btn" data-bind="click:function(data,event){$parent.cellDelete($index,data,event)},visible:(($index() != 0) && ($root.record().C3_471002935941 != 'Y'))">
+            <div class="col-xs-2 cloum-btn" data-bind="click:function(data,event){$parent.cellDelete($index,data,event)},visible: $root.record().C3_471002935941 != 'Y'">
                 删除
             </div>
         </div>
