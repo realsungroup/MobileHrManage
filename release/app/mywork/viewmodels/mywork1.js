@@ -35,7 +35,7 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
                     if (me.record().C3_464172127930 == null || me.record().C3_464172127930 == undefined) {
                         appConfig.app.dbs.dbGetdata(resid, 0, "", cmswhere, fnSuccess, fnError, fnSyserror);
                         function fnSuccess(data, subdata, total) {
-                            // if(appConfig.app.weixindebug) data[0].C3_471002935941 = 'N';
+                            if(appConfig.app.weixindebug) data[0].C3_471002935941 = 'N';
                             me.record(data[0]);
 
                             var timeC = timeControl.createTimeControl();

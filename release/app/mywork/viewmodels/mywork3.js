@@ -97,11 +97,17 @@ define(['durandal/system',
                 emptySchoolModelArr.push(tempSchoolM);
                 schoolModelArr().splice(index(), 1);
 
-              record()[companyArr[tempSchoolM.index]] = '';
-                record()[startTimeArr[tempSchoolM.index]] = '';
-                record()[endTimeArr[tempSchoolM.index]] = '';
-                record()[workArr[tempSchoolM.index]] = '';
-                record()[reasonArr[tempSchoolM.index]] = '';
+                tempSchoolM.companyName('');
+                    tempSchoolM.startTime('');
+                    tempSchoolM.endTime('');
+                    tempSchoolM.major('');
+                    tempSchoolM.reason('');
+
+            //   record()[companyArr[tempSchoolM.index]] = '';
+            //     record()[startTimeArr[tempSchoolM.index]] = '';
+            //     record()[endTimeArr[tempSchoolM.index]] = '';
+            //     record()[workArr[tempSchoolM.index]] = '';
+            //     record()[reasonArr[tempSchoolM.index]] = '';
 
                 schoolModelArr(schoolModelArr());
             },
