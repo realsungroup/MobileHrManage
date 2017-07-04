@@ -601,3 +601,15 @@ color:black !important;
 *{
   text-decoration:none !important;
 }
+
+/*红色必填标记*/
+.need-mark{
+    position: absolute;
+    /* right: 0; */
+    bottom: 0;
+    left: 0;
+    color: red;
+    display: inline-block;
+    height: 34px;
+    line-height: 34px;
+}

@@ -41,7 +41,7 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
 
 
                   var xhr = new XMLHttpRequest();
-                  var upUrlStr =appConfig.app.uploadFileUrl+ '?savepath=c:\\web\\web\\rispweb\\upfiles&httppath=' + appConfig.app.httppath;//alert(upUrlStr);
+                  var upUrlStr =appConfig.app.uploadFileUrl+ '?savepath=c:\\web\\web\\web\\rispweb\\upfiles&httppath=' + appConfig.app.httppath;//alert(upUrlStr);
                   xhr.open('POST', upUrlStr);
                   xhr.onload = function () {
                         var data = JSON.parse(xhr.response);

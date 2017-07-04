@@ -101,6 +101,9 @@ define(['durandal/system',
                         record()[eduArr[tempM.index]] = tempM.edu();
                     }
 
+                });
+
+                ko.computed(function(){
                     for (var i = 0; i < cerModelArr().concat(emptyCerModelArr).length; i++) {
                         var tempM = cerModelArr().concat(emptyCerModelArr)[i];
                         record()[certificateArr[tempM.index]] = tempM.cer();
@@ -109,8 +112,9 @@ define(['durandal/system',
                         record()[dataArr[tempM.index]] = tempM.data();
                         console.log("------->" + record()[certificateArr[tempM.index]]);
                     }
+                }) 
 
-                });
+
 
 
                 var timeC = timeControl.createTimeControl();

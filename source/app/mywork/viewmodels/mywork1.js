@@ -13,6 +13,7 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
                 timeC.initTimeControl();
             },
             record: record,
+            bearing:ko.observable(''),//生育
             attached: function () {
 
             },
@@ -30,12 +31,15 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
                 }
 
                 function getPersonData() {
+                    var self = this;
                     appConfig.app.dbs.dbGetdata(resid, 0, "", cmswhere, fnSuccess, fnError, fnSyserror)
                     console.log("--------------->" + me.record().C3_464172127930);
                     if (me.record().C3_464172127930 == null || me.record().C3_464172127930 == undefined) {
                         appConfig.app.dbs.dbGetdata(resid, 0, "", cmswhere, fnSuccess, fnError, fnSyserror);
                         function fnSuccess(data, subdata, total) {
                             if(appConfig.app.weixindebug) data[0].C3_471002935941 = 'N';
+
+                            self.bearing(data[0].C3_464172852423) //赋值生育字段的值
                             me.record(data[0]);
 
                             var timeC = timeControl.createTimeControl();
@@ -56,6 +60,11 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'jquery'
                 }
             },
             routeMyWork2: function () {
+                if(this.bearing() != '(个人填写)胎'){
+                    record().C3_464172852423 = this.bearing()
+                }
+                // alert(record().C3_464172852423)
+                // return;
 
                 var propertyArr = [
                     "C3_464172127930",

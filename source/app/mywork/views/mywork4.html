@@ -13,15 +13,27 @@
             <div class="padd-rt-five" data-bind="css:{ 'col-xs-12' :$root.record().C3_471002935941 == 'Y' , 'col-xs-10':$root.record().C3_471002935941 != 'Y'}">
                 <div class="col-xs-6 padd-rt-five">
                     <input class="form-control" type="text" data-bind="value:schoolName,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="姓名">
+                    <!--ko if:$index() == 0-->
+                    <span class="need-mark">*</span>
+                    <!--/ko-->
                 </div>
                 <div class="col-xs-6 padd-rt-five">
                     <input class="form-control" type="text" data-bind="value:startTime,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="与本人关系">
+                    <!--ko if:$index() == 0-->
+                    <span class="need-mark">*</span>
+                    <!--/ko-->
                 </div>
                 <div class="col-xs-6 padd-rt-five">
                     <input class="form-control" type="text" data-bind="value:endTime,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="联系方式">
+                    <!--ko if:$index() == 0-->
+                    <span class="need-mark">*</span>
+                    <!--/ko-->
                 </div>
                 <div class="col-xs-6 padd-rt-five">
                     <input class="form-control" type="text" data-bind="value:major,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="工作单位">
+                    <!--ko if:$index() == 0-->
+                    <span class="need-mark">*</span>
+                    <!--/ko-->
                 </div>
             </div>
             <div class="col-xs-2 cloum-btn-short" data-bind="click:function(data,event){$parent.cellDelete($index,data,event)},visible:(($index() != 0) && ($root.record().C3_471002935941 != 'Y'))">
@@ -39,10 +51,12 @@
             <div class="col-xs-6 padd-rt-five">
                 <input class="form-control" type="text" data-bind="value:record().C3_464175727918,disable:record().C3_471002935941 == 'Y'"
                     placeholder="紧急联系人姓名">
+                    <span class="need-mark">*</span>
             </div>
             <div class="col-xs-6 padd-rt-five">
                 <input class="form-control" type="text" data-bind="value:record().C3_464175750587,disable:record().C3_471002935941 == 'Y'"
                     placeholder="与本人关系">
+                    <span class="need-mark">*</span>
             </div>
             <div class="col-xs-6 padd-rt-five">
                 <input class="form-control" type="text" data-bind="value:record().C3_464175797109,disable:record().C3_471002935941 == 'Y'"
@@ -51,10 +65,12 @@
             <div class="col-xs-6 padd-rt-five">
                 <input class="form-control" type="text" data-bind="value:record().C3_464175768379,disable:record().C3_471002935941 == 'Y'"
                     placeholder="现住地址">
+                     <span class="need-mark">*</span>
             </div>
             <div class="col-xs-6 padd-rt-five">
                 <input class="form-control" type="text" data-bind="value:record().C3_464175781611,disable:record().C3_471002935941 == 'Y'"
-                    placeholder="固定电话">
+                    placeholder="联系方式">
+                     <span class="need-mark">*</span>
             </div>
             <div class="col-xs-6 padd-rt-five">
                 <input class="form-control" type="text" data-bind="value:record().C3_464175812688,disable:record().C3_471002935941 == 'Y'"

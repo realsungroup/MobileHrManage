@@ -105,9 +105,9 @@ define(['durandal/app', 'knockout', 'plugins/router', 'plugins/dialog', 'myworks
                     "联系方式",
                     "工作单位",
                     "紧急联系人姓名",
-                    "关系",
-                    "手机",
-                    "地址",
+                    "紧急联系人关系",
+                    "紧急联系人联系方式",
+                    "紧急联系人地址",
                 ];
                 var containArr = [propertyArr, propertyStrArr];
                 var emptyArr = mywork1.valiateForm(containArr);

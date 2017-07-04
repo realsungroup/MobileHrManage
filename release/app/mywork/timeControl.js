@@ -5,7 +5,7 @@ var timeControl = {
         timeC.initTimeControl = function () {
 
             var now = new Date();
-            //    max = new Date(now.getFullYear() + 100, now.getMonth(), now.getDate());
+               max = new Date(now.getFullYear() + 10, now.getMonth(), now.getDate());
 
             var opt = {};
             // opt.date = { preset: 'date' };
@@ -21,7 +21,7 @@ var timeControl = {
                 lang: 'zh',
                 showNow: true,
                 nowText: "今天",
-                max: now
+                max: max
             };
 
             if(this.record == undefined) return;

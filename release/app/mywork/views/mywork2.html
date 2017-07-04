@@ -14,22 +14,31 @@
             <div class="padd-rt-five" data-bind="css:{ 'col-xs-12' :$root.record().C3_471002935941 == 'Y' , 'col-xs-10':$root.record().C3_471002935941 != 'Y'}">
                 <div class="col-xs-6 padd-rt-five">
                     <input class="form-control" type="text" placeholder="学校名称" data-bind="value:schoolName,disable:$parent.record().C3_471002935941 == 'Y'">
+                    <!--ko if:$index() == 0-->
+                    <span class="need-mark">*</span>
+                    <!--/ko-->
                 </div>
 
                 <div class="col-xs-6 padd-rt-five">
                     <input class="form-control appDate text-left readonly-while-bg" readonly type="input" data-bind="value:startTime,disable:$parent.record().C3_471002935941 == 'Y'"
                         placeholder="开始日期:1980-01-01">
+                    <!--ko if:$index() == 0-->
+                    <span class="need-mark">*</span>
+                    <!--/ko-->
                 </div>
 
 
                 <div class="col-xs-6 padd-rt-five">
                     <input class="form-control appDate text-left readonly-while-bg" readonly type="input" data-bind="value:endTime,disable:$parent.record().C3_471002935941 == 'Y'"
                         placeholder="结束日期:1980-01-01">
+                    <!--ko if:$index() == 0-->
+                    <span class="need-mark">*</span>
+                    <!--/ko-->
                 </div>
 
 
                 <div class="col-xs-6 padd-rt-five">
-                    <input class="form-control" type="text" data-bind="value:major,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="专业">
+                    <input class="form-control" type="text" data-bind="value:major,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="专业（若无则不填）">
                 </div>
 
 
@@ -43,6 +52,9 @@
                             <option value="硕士">硕士</option>
                             <option value="博士">博士</option>
                                     </select>
+                    <!--ko if:$index() == 0-->
+                    <span class="need-mark">*</span>
+                    <!--/ko-->
                 </div>
 
             </div>
@@ -58,26 +70,39 @@
             <div class=" padd-rt-five" data-bind="css:{ 'col-xs-12' :$root.record().C3_471002935941 == 'Y' , 'col-xs-10':$root.record().C3_471002935941 != 'Y'}">
                 <div class="col-xs-6 padd-rt-five">
                     <input class="form-control col-xs-6" type="text" data-bind="value:cer,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="职业资格证书">
+                    <!--ko if:$index() == 0-->
+                    <span class="need-mark">*</span>
+                    <!--/ko-->
                 </div>
 
                 <div class="col-xs-6 padd-rt-five">
+                    <!--ko if:$index() == 0-->
                     <select class="form-control" data-bind="value:lv,disable:$parent.record().C3_471002935941 == 'Y'">
-                                        <option value="无">无</option>
-                                        <option value="CET-4">CET-4</option>
-                                        <option value="CET-6">CET-6</option>
-                                        <option value="TEM-4">TEM-4</option>
-                                        <option value="TEM-8">TEM-8</option>
-                                    </select>
+                        <option value="无">无</option>
+                        <option value="CET-4">CET-4</option>
+                        <option value="CET-6">CET-6</option>
+                        <option value="TEM-4">TEM-4</option>
+                        <option value="TEM-8">TEM-8</option>
+                    </select>
+                    <!--/ko-->
+
+                    <!--ko ifnot:$index() == 0-->
+                    <input class="form-control" type="text" data-bind="value:lv,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="等级">
+                    <!--/ko-->
+
+                    <!--ko if:$index() == 0-->
+                    <span class="need-mark">*</span>
+                    <!--/ko-->
                 </div>
 
                 <div class="col-xs-6 padd-rt-five">
                     <input class="form-control col-xs-6" type="text" data-bind="value:organ,disable:$parent.record().C3_471002935941 == 'Y'"
-                        placeholder="颁发机构">
+                        placeholder="颁发机构（选填）">
                 </div>
 
                 <div class="col-xs-6 padd-rt-five">
                     <input class="form-control col-xs-6 appDate text-left readonly-while-bg" readonly type="input" data-bind="value:data,disable:$parent.record().C3_471002935941 == 'Y'"
-                        placeholder="获得日期">
+                        placeholder="获得日期（选填）">
                 </div>
             </div>
             <div class="col-xs-2 bg-salmon cloum-btn-short" data-bind="click:function(data,event){$parent.cellDelete('cer',$index,data,event)},visible:(($index() != 0) && ($root.record().C3_471002935941 != 'Y'))">

@@ -66,3 +66,9 @@ label.myread-switch span:nth-child(2){
 .back-Top-bottom{
      bottom: 20px !important;
 }
+
+.graybg{
+    background-color: gray !important;
+    color: white;
+    border-color: gray !important;
+}

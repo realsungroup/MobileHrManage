@@ -1,27 +1,22 @@
 <ons-page class="mypage">
-    <form class="form-horizontal page-padd" >
+    <form class="form-horizontal page-padd">
 
         <div class="form-group">
             <p class="col-xs-4 control-label text-right">姓名</p>
             <div class="col-xs-8">
                 <input class="form-control" type="text" data-bind="value:record().C3_464172127930,disable:record().C3_471002935941 == 'Y'">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <p class="col-xs-4 control-label text-right">英文名</p>
-            <div class="col-xs-8">
-                <input class="form-control" type="text" data-bind="value:record().C3_464172148589,disable:record().C3_471002935941 == 'Y'">
+                <span class="need-mark">*</span>
             </div>
         </div>
 
         <div class="form-group">
             <p class="col-xs-4 control-label text-right">性别</p>
             <div class="col-xs-8">
-                <select class="form-control"  data-bind="value:record().C3_464172157606,disable:record().C3_471002935941 == 'Y'">
+                <select class="form-control" data-bind="value:record().C3_464172157606,disable:record().C3_471002935941 == 'Y'">
                             <option value="男">男</option>
                             <option value="女">女</option>
                         </select >
+                <span class="need-mark">*</span>
             </div>
         </div>
 
@@ -33,6 +28,7 @@
                             <option value="B">B型</option>
                             <option value="O">O型</option>
                             <option value="AB">AB型</option>
+                            <option value="未知">未知</option>
                         </select >
             </div>
         </div>
@@ -41,13 +37,48 @@
             <p class="col-xs-4 control-label text-right">国籍</p>
             <div class="col-xs-8">
                 <input class="form-control" type="text" data-bind="value:record().C3_464172188709,disable:record().C3_471002935941 == 'Y'">
+                <span class="need-mark">*</span>
             </div>
         </div>
 
         <div class="form-group">
             <p class="col-xs-4 control-label text-right">籍贯</p>
             <div class="col-xs-8">
-                <input class="form-control" type="text" data-bind="value:record().C3_464172212871,disable:record().C3_471002935941 == 'Y'">
+                <select class="form-control"  data-bind="value:record().C3_464172212871,disable:record().C3_471002935941 == 'Y'">
+                            <option value="河北">河北</option>
+                            <option value="山西">山西</option>
+                            <option value="辽宁">辽宁</option>
+                            <option value="吉林">吉林</option>
+                            <option value="黑龙江">黑龙江</option>
+                            <option value="江苏">江苏</option>
+                            <option value="浙江">浙江</option>
+                            <option value="安徽">安徽</option>
+                            <option value="福建">福建</option>
+                            <option value="江西">江西</option>
+                            <option value="山东">山东</option>
+                            <option value="河南">河南</option>
+                            <option value="湖北">湖北</option>
+                            <option value="湖南">湖南</option>
+                            <option value="广东">广东</option>
+                            <option value="海南">海南</option>
+                            <option value="四川">四川</option>
+                            <option value="贵州">贵州</option>
+                            <option value="云南">云南</option>
+                            <option value="陕西">陕西</option>
+                            <option value="甘肃">甘肃</option>
+                            <option value="青海">青海</option>
+                            <option value="台湾">台湾</option>
+                            <option value="北京">北京</option>
+                            <option value="天津">天津</option>
+                            <option value="上海">上海</option>
+                            <option value="重庆">重庆</option>
+                             <option value="新疆">新疆</option>
+                            <option value="广西">广西</option>
+                            <option value="宁夏">宁夏</option>
+                             <option value="内蒙古">内蒙古</option>
+                            <option value="西藏">西藏</option>
+                        </select >
+                        <span class="need-mark">*</span>
             </div>
         </div>
 
@@ -112,6 +143,7 @@
                             <option value="珞巴族">珞巴族</option>
                             <option value="布朗族">布朗族</option>
                         </select >
+                        <span class="need-mark">*</span>
             </div>
         </div>
 
@@ -120,17 +152,18 @@
             <div class="col-xs-8">
                 <select class="form-control"  data-bind="value:record().C3_464172266942,disable:record().C3_471002935941 == 'Y'">
                             <option value="身份证">身份证</option>
-                            <option value="军人证">军人证</option>
                             <option value="护照">护照</option>
-                            <option value="签证">签证</option>
                         </select >
+                <span class="need-mark">*</span>
             </div>
         </div>
 
         <div class="form-group">
             <p class="col-xs-4 control-label text-right">证件号码</p>
             <div class="col-xs-8">
-                <input class="form-control" type="text" data-bind="value:record().C3_464172300168,disable:record().C3_471002935941 == 'Y'"> </div>
+                <input class="form-control" type="text" data-bind="value:record().C3_464172300168,disable:record().C3_471002935941 == 'Y'">
+                <span class="need-mark">*</span>
+            </div>
         </div>
 
         <div class="form-group">
@@ -146,42 +179,38 @@
         <div class="form-group">
             <p class="col-xs-4 control-label text-right">文书送达地址</p>
             <div class="col-xs-8">
-                <input class="form-control" type="text" data-bind="value:record().C3_464172350271,disable:record().C3_471002935941 == 'Y'">
+                <input class="form-control" placeholder="户口所在地址"  type="text" data-bind="value:record().C3_464172350271,disable:record().C3_471002935941 == 'Y'">
+                <span class="need-mark">*</span>
             </div>
         </div>
 
         <div class="form-group">
-            <p class="col-xs-4 control-label text-right">现居地址</p>
+            <p class="col-xs-4 control-label text-right">宗教信仰</p>
             <div class="col-xs-8">
-                <input class="form-control" type="text" data-bind="value:record().C3_464172402553,disable:record().C3_471002935941 == 'Y'">
+                <input class="form-control" placeholder="若没有则填无"  type="text" data-bind="value:record().C3_552493532753,disable:record().C3_471002935941 == 'Y'">
             </div>
         </div>
 
         <div class="form-group">
-            <p class="col-xs-4 control-label text-right">邮编</p>
+            <p class="col-xs-4 control-label text-right">现居住地址</p>
             <div class="col-xs-8">
-                <input class="form-control" type="text" data-bind="value:record().C3_464172444813,disable:record().C3_471002935941 == 'Y'">
+                <input class="form-control" placeholder="现无锡居住地址" type="text" data-bind="value:record().C3_464172402553,disable:record().C3_471002935941 == 'Y'">
+                <span class="need-mark">*</span>
             </div>
         </div>
 
         <div class="form-group">
-            <p class="col-xs-4 control-label text-right">移动电话</p>
+            <p class="col-xs-4 control-label text-right">手机号码</p>
             <div class="col-xs-8">
                 <input class="form-control" type="text" data-bind="value:record().C3_546621946191,disable:record().C3_471002935941 == 'Y'">
+                <span class="need-mark">*</span>
             </div>
         </div>
 
         <div class="form-group">
-            <p class="col-xs-4 control-label text-right">住宅电话</p>
+            <p class="col-xs-4 control-label text-right">家庭电话</p>
             <div class="col-xs-8">
-                <input class="form-control" type="text" data-bind="value:record().C3_464172486192,disable:record().C3_471002935941 == 'Y'">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <p class="col-xs-4 control-label text-right">公司邮箱</p>
-            <div class="col-xs-8">
-                <input class="form-control" type="text" data-bind="value:record().C3_464172522558,disable:record().C3_471002935941 == 'Y'">
+                <input class="form-control" placeholder="选填" type="text" data-bind="value:record().C3_464172486192,disable:record().C3_471002935941 == 'Y'">
             </div>
         </div>
 
@@ -197,7 +226,9 @@
                             <option value="硕士">硕士</option>
                             <option value="博士">博士</option>
                         </select >
+                        <span class="need-mark">*</span>
             </div>
+            
         </div>
 
         <div class="form-group">
@@ -208,6 +239,7 @@
                             <option value="党员">党员</option>
                             <option value="群众">群众</option>
                         </select >
+                        <span class="need-mark">*</span>
             </div>
         </div>
 
@@ -218,7 +250,7 @@
                             <option value="城镇户口">城镇户口</option>
                             <option value="农村户口">农村户口</option>
                         </select >
-
+                        <span class="need-mark">*</span>
             </div>
         </div>
 
@@ -228,26 +260,30 @@
                 <select class="form-control"  data-bind="value:record().C3_464172819253,disable:record().C3_471002935941 == 'Y'">
                             <option value="已婚">已婚</option>
                             <option value="未婚">未婚</option>
-                            <option value="离异">离异</option>
-                            <option value="丧偶">丧偶</option>
+                            <option value="个人填写">个人填写</option>
                         </select >
+                        <span class="need-mark">*</span>
             </div>
         </div>
 
         <div class="form-group">
             <p class="col-xs-4 control-label text-right">生育状况</p>
             <div class="col-xs-8">
-                <select class="form-control"  data-bind="value:record().C3_464172852423,disable:record().C3_471002935941 == 'Y'">
-                            <option value="未育">未育</option>
-                            <option value="已育">已育</option>
-                        </select >
+                <select class="form-control"  data-bind="value:bearing,disable:record().C3_471002935941 == 'Y'">
+                    <option value="未育">未育</option>
+                    <option value="已育">已育</option>
+                    <option value="(个人填写)胎">(个人填写)胎</option>
+                </select >
+                <input type="text" data-bind="value:record().C3_464172852423,visible:bearing() == '(个人填写)胎'" class="form-control">
+              
+                <span class="need-mark">*</span>
             </div>
         </div>
 
         <div class="form-group">
             <p class="col-xs-4 control-label text-right">个人邮箱</p>
             <div class="col-xs-8">
-                <input class="form-control" type="text" data-bind="value:record().C3_464175812688,disable:record().C3_471002935941 == 'Y'">
+                <input class="form-control" placeholder="QQ邮箱"  type="text" data-bind="value:record().C3_464175812688,disable:record().C3_471002935941 == 'Y'">
             </div>
         </div>
 
@@ -256,6 +292,7 @@
             <p class="col-xs-4 control-label text-right">微信号</p>
             <div class="col-xs-8">
                 <input class="form-control" type="text" placeholder="用于注册菲尼萨员工公众微信号" data-bind="value:record().C3_551803275504,disable:record().C3_471002935941 == 'Y'">
+            <span class="need-mark">*</span>
             </div>
         </div>
 

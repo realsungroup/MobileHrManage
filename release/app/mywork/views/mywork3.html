@@ -29,7 +29,17 @@
                 </div>
 
                 <div class="col-xs-6 padd-rt-five">
-                    <input class="form-control" type="text" data-bind="value:major,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="职称">
+                    <input class="form-control" type="text" data-bind="value:major,disable:$parent.record().C3_471002935941 == 'Y'" placeholder="职位">
+                </div>
+
+                <div class="col-xs-6 padd-rt-five">
+                    <select class="form-control" data-bind="value:protocol,disable:$parent.record().C3_471002935941 == 'Y'">
+                        <option value="派遣合同">派遣合同</option>
+                        <option value="外包合同">外包合同</option>
+                        <option value="劳动合同">劳动合同</option>
+                        <option value="实习协议">实习协议</option>
+                        <option value="临时">临时</option>
+                    </select>
                 </div>
 
                 <div class="col-xs-6 padd-rt-five">
